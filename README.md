@@ -6,7 +6,7 @@ Cloud Native Application development with Spring and Cloud Foundry. Join Pivotal
 - Cloud Native
 - PCF 2.0 Overview
 - What's new in PCF 2.1
-- Spring Boot, Actuator, Spring Cloud Data Flow
+- Spring Boot 2.0, Actuator Security, Spring Cloud Data Flow for PCF
 - Deployment Basics (push/bind/scale) and SCDF [labs]
 - Scaling Applications (new autoscaler settings and CLI) [lab]
 - PCF Metrics and PCF Healthwatch [labs]
