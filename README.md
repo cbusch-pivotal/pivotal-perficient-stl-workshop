@@ -30,7 +30,7 @@ Time | Session
 9:00 AM - 9:30 AM | _Session 1: Cloud Native Architectures & Frameworks_ (Steve)
 9:30 AM - 11:30 AM | _Session 2: Pivotal Cloud Foundry Overview with Labs*_ (Chris)
 11:30 AM - 12:00 PM | _Session 3: Spring Boot and Actuator with Labs*_ (Sharath)
-12:00 PM - 1:00 PM | _Working Lunch with Guest Speaker from Perficient_ (Dave)
+12:00 PM - 1:00 PM | _Working Lunch with Guest Speaker from Perficient - Discussion about a Project_ (TBD)
 1:00 PM - 2:00 PM | _Session 4: Spring Data on Cloud Foundry with Labs*_ (Steve)
 2:00 PM - 3:00 PM | _Session 5: Spring Cloud Services on Cloud Foundry_ (Navjot)
 3:00 PM - 4:00 PM | _Session 6: Route Services with Apigee with Labs*_ (Navjot)
