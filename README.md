@@ -1,18 +1,17 @@
 # PCF & Spring Workshop
 ## Pivotal Software and Perficient St. Louis
-Cloud Native Application development with Spring and Cloud Foundry. Join Pivotal and Perficient for a full-day hands-on workshop to introduce key concepts in modern cloud native application development and delivery. This workshop will introduce concepts of cloud-native and Spring application development along with Pivotal Cloud Foundry.  The labs will leverage Spring Boot and Actuator, Spring Data, and other Spring projects. 
+Cloud Native Application development with Spring and Pivotal Cloud Foundry. Join Pivotal and Perficient for a full-day hands-on workshop to introduce key concepts in modern cloud native application development and delivery. This workshop will introduce concepts of cloud-native and Spring application development along with Pivotal Cloud Foundry.  The labs will leverage Spring Boot, Spring Cloud Data Flow and Actuator, Spring Cloud, and other PCF 2.0 topics. 
 
 **possible topics**
-- Cloud Native
-- PCF 2.0 Overview
-- What's new in PCF 2.1
-- Spring Boot 2.0, Actuator Security, Spring Cloud Data Flow for PCF
-- Developing apps with .Net for PCF and Windows 2016
-- Deployment Basics and using SCDF
-- Scaling Applications with the new autoscaler and CLI
-- PCF Metrics and PCF Healthwatch
-- Pivotal Container Service (PKS) Overview
-- Deploying apps in containers to PKS
+- Cloud Native (chris)
+- PCF 2.0 - Pivotal Application Service (PAS) and Pivotal Container Service (PKS) Overview (chris)
+- What's new in PCF 2.1 (chris)
+- Deploying apps in containers to PKS (chris)
+- Developing apps with .Net and Windows 2016 for PCF (chris)
+- Spring Boot 2.0, Actuator Security, Spring Cloud and Spring Cloud Data Flow (SCDF) for PCF (dave & chris)
+- PAS Deployment Basics and using SCDF (prft? - create datasource, load data, create flow to transform and push to a destination)
+- Scaling Applications with the new Autoscaler and CLI (slides)
+- PCF Metrics and PCF Healthwatch (chris)
 
 
 # ORIGINAL MATERIAL FROM LAST YEAR
