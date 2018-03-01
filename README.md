@@ -2,6 +2,21 @@
 ## Pivotal Software and Perficient St. Louis
 Cloud Native Application development with Spring and Cloud Foundry. Join Pivotal and Perficient for a full-day hands-on workshop to introduce key concepts in modern cloud native application development and delivery. This workshop will introduce concepts of cloud-native and Spring application development along with Pivotal Cloud Foundry.  The labs will leverage Spring Boot and Actuator, Spring Data, and other Spring projects. 
 
+**possible topics**
+- Cloud Native
+- PCF 2.0 Overview
+- What's new in PCF 2.1
+- Spring Boot, Actuator, Spring Cloud Data Flow
+- Deployment Basics (push/bind/scale) and SCDF [labs]
+- Scaling Applications (new autoscaler settings and CLI) [lab]
+- PCF Metrics and PCF Healthwatch [labs]
+- Pivotal Container Service (PKS) Overview
+- Deploying to PKS [labs]
+- Should we add Windows 2016 app deployment?
+- what else
+
+
+# ORIGINAL MATERIAL FROM LAST YEAR
 **Events**
 - Visit [registration](https://pivotal.io/event/cloud-native-workshop/stl) for this workshop. 
 - Registration is open for the [Pivotal Cloud Native Roadshow](https://pivotal.io/event/pivotal-cloud-native-roadshow/stlouis) being presented on November 14th, 2016, at Washington University Knight Center. 
