@@ -7,13 +7,12 @@ Cloud Native Application development with Spring and Cloud Foundry. Join Pivotal
 - PCF 2.0 Overview
 - What's new in PCF 2.1
 - Spring Boot 2.0, Actuator Security, Spring Cloud Data Flow for PCF
-- Deployment Basics (push/bind/scale) and SCDF [labs]
-- Scaling Applications (new autoscaler settings and CLI) [lab]
-- PCF Metrics and PCF Healthwatch [labs]
+- Developing apps with .Net for PCF and Windows 2016
+- Deployment Basics and using SCDF
+- Scaling Applications with the new autoscaler and CLI
+- PCF Metrics and PCF Healthwatch
 - Pivotal Container Service (PKS) Overview
-- Deploying to PKS [labs]
-- Should we add Windows 2016 app deployment?
-- what else
+- Deploying apps in containers to PKS
 
 
 # ORIGINAL MATERIAL FROM LAST YEAR
