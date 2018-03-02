@@ -3,7 +3,7 @@
 Cloud Native application development with Spring, .Net and Pivotal Cloud Foundry. Join Pivotal and Perficient for a full-day hands-on workshop to introduce key concepts in modern cloud native application development and delivery. This workshop will introduce concepts of cloud-native, Spring and .Net application development, and container workload deployments with Pivotal Cloud Foundry, as well as application monitoring with PCF Metrics and platform monitoring with PCF Healthwatch. The labs will leverage Spring Boot 2.0, Spring Actuator, Spring Cloud Data Flow for PCF, and other PCF 2.0 topics.
 
 ## Topics
--Cloud Native Architecture and Security
+- Cloud Native Architecture and Security
 - PCF 2.0 with Pivotal Application Service (PAS) and Pivotal Container Service (PKS) Overview
 - What's new in PCF 2.1
 - Spring Boot 2.0 apps dev and Spring Actuator
