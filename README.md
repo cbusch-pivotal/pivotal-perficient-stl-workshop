@@ -1,11 +1,22 @@
 # PCF & Spring Workshop
 ## Pivotal Software and Perficient St. Louis
-Cloud Native Application development with Spring and Pivotal Cloud Foundry. Join Pivotal and Perficient for a full-day hands-on workshop to introduce key concepts in modern cloud native application development and delivery. This workshop will introduce concepts of cloud-native and Spring application development along with Pivotal Cloud Foundry.  The labs will leverage Spring Boot, Spring Cloud Data Flow and Actuator, Spring Cloud, and other PCF 2.0 topics. 
+Cloud Native Application development and security with Spring and Pivotal Cloud Foundry. Join Pivotal and Perficient for a full-day hands-on workshop to introduce key concepts in modern cloud native application development and delivery. This workshop will introduce concepts of cloud-native and Spring application development along with Pivotal Cloud Foundry.  The labs will leverage Spring Boot, Spring Cloud Data Flow and Actuator, Spring Cloud, and other PCF 2.0 topics.
 
-**possible topics**
-- Cloud Native (chris)
-- PCF 2.0 - Pivotal Application Service (PAS) and Pivotal Container Service (PKS) Overview (chris)
-- What's new in PCF 2.1 (chris)
+## Topics
+-Cloud Native Architecture and Security
+- PCF 2.0 with Pivotal Application Service (PAS) and Pivotal Container Service (PKS) Overview
+- What's new in PCF 2.1
+- Spring Boot 2.0 apps dev and Spring Actuator
+- Application deployment on PAS
+- Spring Cloud and Spring Cloud Data Flow (SCDF) for PCF
+- Deploying an SCDF workflow to PCF
+- Scaling Applications with Autoscaler and CLI
+- Deploying container workloads to PKS
+
+**working list of possible topics**
+- Cloud Native arch and security (Pivotal)
+- PCF 2.0 - Pivotal Application Service (PAS) and Pivotal Container Service (PKS) Overview (Pivotal)
+- What's new in PCF 2.1 (Pivotal)
 - Deploying apps in containers to PKS (chris)
 - Developing apps with .Net and Windows 2016 for PCF (chris)
 - Spring Boot 2.0, Actuator Security, Spring Cloud and Spring Cloud Data Flow (SCDF) for PCF (dave & chris)
