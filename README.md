@@ -1,6 +1,6 @@
 # PCF & Spring Workshop
 ## Pivotal Software and Perficient St. Louis
-Cloud Native Application development and security with Spring and Pivotal Cloud Foundry. Join Pivotal and Perficient for a full-day hands-on workshop to introduce key concepts in modern cloud native application development and delivery. This workshop will introduce concepts of cloud-native and Spring application development along with Pivotal Cloud Foundry.  The labs will leverage Spring Boot, Spring Cloud Data Flow and Actuator, Spring Cloud, and other PCF 2.0 topics.
+Cloud Native application development with Spring, .Net and Pivotal Cloud Foundry. Join Pivotal and Perficient for a full-day hands-on workshop to introduce key concepts in modern cloud native application development and delivery. This workshop will introduce concepts of cloud-native, Spring and .Net application development, and container workload deployments with Pivotal Cloud Foundry, as well as application monitoring with PCF Metrics and platform monitoring with PCF Healthwatch. The labs will leverage Spring Boot 2.0, Spring Actuator, Spring Cloud Data Flow for PCF, and other PCF 2.0 topics.
 
 ## Topics
 -Cloud Native Architecture and Security
