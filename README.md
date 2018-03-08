@@ -1,10 +1,10 @@
 # PCF & Spring Workshop
 ## Pivotal Software and Perficient St. Louis
-Cloud Native application development with Spring, .Net and Pivotal Cloud Foundry. Join Pivotal and Perficient for a full-day hands-on workshop to introduce key concepts in modern cloud native application development and delivery. This workshop will introduce concepts of cloud-native, Spring and .Net application development, and container workload deployments with Pivotal Cloud Foundry, as well as application monitoring with PCF Metrics and platform monitoring with PCF Healthwatch. The labs will leverage Spring Boot 2.0, Spring Actuator, Spring Cloud Data Flow for PCF, and other PCF 2.0 topics.
+Join Pivotal and Perficient for a full-day hands-on workshop to introduce key concepts in modern cloud-native application development and delivery. This workshop will introduce concepts of cloud-native, Spring and .Net application development, container workload deployments with [Pivotal Cloud Foundry](https://pivotal.io/platform), as well as application monitoring with PCF Metrics and platform monitoring with PCF Healthwatch. The labs will leverage Spring Boot 2.0, Spring Actuator, Spring Cloud Data Flow for PCF, and other PCF 2.0 topics.
 
 ## Topics
-- Cloud Native Architecture and Security
-- PCF 2.0 with Pivotal Application Service (PAS) and Pivotal Container Service (PKS) Overview
+- Cloud-native Architecture and Security
+- PCF 2.0 with Pivotal Application Service (PAS) and Pivotal - Container Service (PKS) Overview
 - What's new in PCF 2.1
 - Spring Boot 2.0 apps dev and Spring Actuator
 - Application deployment on PAS
@@ -13,36 +13,43 @@ Cloud Native application development with Spring, .Net and Pivotal Cloud Foundry
 - Scaling Applications with Autoscaler and CLI
 - Deploying container workloads to PKS
 
-**working list of possible topics**
-- Cloud Native arch and security (Pivotal)
-- PCF 2.0 - Pivotal Application Service (PAS) and Pivotal Container Service (PKS) Overview (Pivotal)
-- What's new in PCF 2.1 (Pivotal)
-- Deploying apps in containers to PKS (chris)
-- Developing apps with .Net and Windows 2016 for PCF (chris)
-- Spring Boot 2.0, Actuator Security, Spring Cloud and Spring Cloud Data Flow (SCDF) for PCF (dave & chris)
-- PAS Deployment Basics and using SCDF (prft? - create datasource, load data, create flow to transform and push to a destination)
-- Scaling Applications with the new Autoscaler and CLI (slides)
-- PCF Metrics and PCF Healthwatch (chris)
+_This workshop is intended for: Managers, Architects, Developers, Operators and Infrastructure teams to learn about cloud-native architecture and Pivotal Cloud Foundry._
+
+__NOTE__: Space is limited. Please register for the workshop [here](http://connect.pivotal.io/PCF-Spring-Workshop-Pivotal-Perficient.html) today.
 
 
-# ORIGINAL MATERIAL FROM LAST YEAR
-**Events**
-- Visit [registration](https://pivotal.io/event/cloud-native-workshop/stl) for this workshop. 
-- Registration is open for the [Pivotal Cloud Native Roadshow](https://pivotal.io/event/pivotal-cloud-native-roadshow/stlouis) being presented on November 14th, 2016, at Washington University Knight Center. 
-- Stay informed for the [2017 SpringOne Platform](https://springoneplatform.io/) to be held in San Francisco, CA, December 4-7, 2017.
+##Other Events of Interest
+- [SpringOne Tour by Pivotal](https://springonetour.io/), [St. Louis May 30-31 at T-Rex](https://springonetour.io/2018/st-louis). Cloud-Native Java From the Source: The SpringOne Tour brings the best Cloud-Native Java content from our flagship conference directly to you. In 2 days, you’ll learn about both traditional monolithic and modern, Cloud-Native Java from the source. Experience valuable facetime with expert Pivotal speakers in both traditional presentation and informal open space discussions about modern Application Development, DevOps, CI/CD, Cloud and more.
+- Stay informed for the [2018 SpringOne Platform by Pivotal](https://springoneplatform.io/) to be held in Sept. 24-27 in Washington, D.C.
+- ...
 
-## Agenda
+
+
+#Pivotal / Perficient team working list
+1. Cloud Native arch and security (Pivotal)
+1. PCF 2.0 - Pivotal Application Service (PAS) and Pivotal Container Service (PKS) Overview (Pivotal)
+1. What's new in PCF 2.1 (Pivotal)
+1. Deploying apps in containers to PKS (chris)
+1. Developing apps with .Net and Windows 2016 for PCF (chris)
+1. Spring Boot 2.0, Actuator Security, Spring Cloud and Spring Cloud Data Flow (SCDF) for PCF (dave & chris)
+1. PAS Deployment Basics and using SCDF (prft? - create datasource, load data, create flow to transform and push to a destination)
+1. Scaling Applications with the new Autoscaler and CLI (slides)
+1. PCF Metrics and PCF Healthwatch (chris)
+
+## Draft Agenda
 
 Time | Session
 ---- | -------
 8:30 AM - 9:00 AM | _Registration and Breakfast_
-9:00 AM - 9:30 AM | _Session 1: Cloud Native Architectures & Frameworks_ (Steve)
-9:30 AM - 11:30 AM | _Session 2: Pivotal Cloud Foundry Overview with Labs*_ (Chris)
-11:30 AM - 12:00 PM | _Session 3: Spring Boot and Actuator with Labs*_ (Sharath)
-12:00 PM - 1:00 PM | _Working Lunch with Guest Speaker from Perficient - Discussion about a Project_ (TBD)
-1:00 PM - 2:00 PM | _Session 4: Spring Data on Cloud Foundry with Labs*_ (Steve)
-2:00 PM - 3:00 PM | _Session 5: Spring Cloud Services on Cloud Foundry_ (Navjot)
-3:00 PM - 4:00 PM | _Session 6: Route Services with Apigee with Labs*_ (Navjot)
+9:00 AM - 9:30 AM | _Session 1: Cloud Native Architectures & Security_ __(Pivotal -> Steve)__
+9:30 AM - 10:30 AM | _Session 2: Pivotal Cloud Foundry (PCF)2.0 Overview with Pivotal Application Service (PAS) and Pivotal Container Service (PKS)_ __(Pivotal -> Chris)__
+10:30 AM - 10:45 AM | _Break_
+10:45 AM - 11:15 AM | _Session 3: What's new in PCF 2.1?_ __(Pivotal -> Sharath)__
+11:15 AM - 12:00 PM | _Session 4: PCF Application Deployment Labs_ __(Perficient)__
+12:00 PM - 1:00 PM | _Working Lunch with Perficient guest speaker - Project Experiences_ __(Perficient)__
+1:00 PM - 2:00 PM | _Session 5: Spring Boot and Actuator with Lab_ __(Pivotal / Perficient)__
+2:00 PM - 3:00 PM | _Session 6: Spring Cloud Data Flow on PCF with Lab_ __()__
+3:00 PM - 4:00 PM | _Session 7: Scaling Apps with the new Autoscaler CLI with Lab_ __()__
 4:00 PM - 4:30 PM | _Wrap-up, Q&A, Course evaluation_
 
 _*See [Course Materials](#course-materials) section below for slides and labs_
@@ -69,8 +76,8 @@ Start by downloading and installing the appropriate prerequisite tools.
 Next, download the course materials.  This can be accomplished either through the GitHub website by downloading a repository zip and unzipping locally, or if you have Git installed, use the following commands:
 
 ```
-$ git clone https://github.com/cbusch-pivotal/stl-cloud-native-spring-workshop
-$ cd stl-cloud-native-spring-workshop/
+$ git clone https://github.com/cbusch-pivotal/pivotal-perficient-stl-workshop
+$ cd pivotal-perficient-stl-workshop/
 ```
 
 **PCF Environments**
@@ -79,35 +86,30 @@ Finally, in order to perform the labs, you must be connected or logged into a li
 
 ## Course Materials
 
-#### _Session 1: Cloud Native Architectures & Frameworks_ [(Slides)](session_01/Session_01-Cloud_Native_Architectures_and_Frameworks-2xpg.pdf)
+#### _Session 1: Cloud Native Architectures & Security_ [(Slides)](session_01/Session_01-Cloud_Native_Architectures_and_Security.pdf)
 
-#### _Session 2: Pivotal Cloud Foundry Overview_ [(Slides)](session_02/Session_02-Pivotal_Cloud_Foundry-The_Cloud_Native_Platform-2xpg.pdf)
-  - [Lab 1 - From Zero to Pushing Your First Application](session_02/lab_01/lab_01.adoc)
-  - [Lab 2 - Binding to Cloud Foundry Services](session_02/lab_02/lab_02.adoc)
-  - [Lab 3 - Scaling Applications](session_02/lab_03/lab_03.adoc)
-  - [Lab 4 - Monitoring Applications](session_02/lab_04/lab_04.adoc)
+#### _Session 2: Pivotal Cloud Foundry (PCF) 2.0 Overview with Pivotal Application Service (PAS) and Pivotal Container Service (PKS)_ [(Slides)](session_02/Session_02-PCF-20-PAS-PKS.pdf)
 
-#### _Session 3: Spring Boot and Actuator_ [(Slides)](session_03/Session_03-Spring_Boot_Actuator-2xpg.pdf)
-  - [Lab 5 - Introspection, Monitoring, and Metrics using Spring Boot Actuator](session_03/lab_05/lab_05.adoc)
+#### _Session 3: What's new in PCF 2.1?_ [(Slides)] (session_03/Session_03-Whats_new_in_PCF_21.pdf)
 
-#### _Lunch Session: Perficient_ [(Slides)](session_lunch/pivotal-prft-intellivisit-2xpg.pdf)
+#### _Session 4: PCF Application Deployment Labs_
+  - [Lab 1 - From Zero to Pushing Your First Application](session_04/lab_01/lab_01.adoc)
+  - [Lab 2 - Binding to Cloud Foundry Services](session_04/lab_02/lab_02.adoc)
+  - [Lab 3 - Scaling Applications](session_04/lab_03/lab_03.adoc)
+  - [Lab 4 - Monitoring Applications](session_04/lab_04/lab_04.adoc)
 
-#### _Session 4: Spring Data on Cloud Foundry_ [(Slides)](session_04/Session_04-Spring_Data-2xpg.pdf)
-  - [Lab 6 - Build a Hypermedia-Driven RESTful Web Service with Spring Data REST](session_04/lab_06/lab_06.adoc)
-  - [Lab 7 - Leveraging Spring Cloud Connectors for Service Binding](session_04/lab_07/lab_07.adoc)
+#### _Lunch Session: Perficient_ [(Slides)](session_lunch/perficient-projects.pdf)
 
-#### _Session 5: Spring Cloud Services on Cloud Foundry_ [(Slides)](session_05/Session_05-Spring-Cloud-Services-2xpg.pdf)
-_Extra credit - labs can be done on your own!_
-  - [Lab 8 - Binding Spring Cloud Services](session_05/lab_08/lab_08.adoc)
-  - [Lab 9 - Service Registry](session_05/lab_09/lab_09.adoc)
-  - [Lab 10 - Config Server](session_05/lab_10/lab_10.adoc)
-  - [Lab 11 - Circuit Breaker Dashboard](session_05/lab_11/lab_11.adoc)
+#### _Session 5: Spring Boot and Actuator with Lab_ [(Slides)](session_05/Session_03-Spring_Boot_and_Actuator.pdf)
+  - [Lab 5 - Introspection, Monitoring, and Metrics using Spring Boot Actuator](session_05/lab_05/lab_05.adoc)
 
-#### _Session 6: Route Services with Apigee_ [(Slides)](session_06/Session_06-Route_Services_and_Apigee_Edge-2xpg.pdf)
-  - [Lab 12 - PCF Route Service with Apigee](session_06/lab_12/lab_12.adoc)
-  - [Lab 13 - Apigee DevJam](session_06/lab_13/lab_13.adoc)
+#### _Session 6: Spring Cloud Data Flow on PCF_ [(Slides)](session_06/Session_06-SCDF_on_PCF.pdf)
+  - [Lab 6 - Leveraging Spring Cloud Data Flow](session_06/lab_06/lab_06.adoc)
 
-#### _Wrap-up, Q&A, Course evaluation_ [(Slides)](session_wrapup/Session_Wrap-up-2xpg.pdf) [(Evaluation)](https://goo.gl/forms/aD5y2Rlhn99CZUaA2)
+#### _Session 7: Scaling Apps with the new Autoscaler CLI with Lab_ [(Slides)](session_07/Session_07-Scaling_Apps_with_Autoscaler.pdf)
+  - [Lab 7 - Using PCF Autoscaler](session_07/lab_07/lab_07.adoc)
+
+#### _Wrap-up, Q&A, Course evaluation_ [(Slides)](session_wrapup/Session_Wrap-up.pdf) [(Evaluation)]()
 
 ## Hosts and Instructors
 - Chris Busch, Pivotal Platform Architect, cbusch@pivotal.io
