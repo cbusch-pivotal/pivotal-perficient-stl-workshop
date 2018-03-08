@@ -18,14 +18,14 @@ _This workshop is intended for: Managers, Architects, Developers, Operators and 
 __NOTE__: Space is limited. Please register for the workshop [here](http://connect.pivotal.io/PCF-Spring-Workshop-Pivotal-Perficient.html) today.
 
 
-##Other Events of Interest
+## Other Events of Interest
 - [SpringOne Tour by Pivotal](https://springonetour.io/), [St. Louis May 30-31 at T-Rex](https://springonetour.io/2018/st-louis). Cloud-Native Java From the Source: The SpringOne Tour brings the best Cloud-Native Java content from our flagship conference directly to you. In 2 days, you’ll learn about both traditional monolithic and modern, Cloud-Native Java from the source. Experience valuable facetime with expert Pivotal speakers in both traditional presentation and informal open space discussions about modern Application Development, DevOps, CI/CD, Cloud and more.
 - Stay informed for the [2018 SpringOne Platform by Pivotal](https://springoneplatform.io/) to be held in Sept. 24-27 in Washington, D.C.
 - ...
 
 
 
-#Pivotal / Perficient team working list
+# Pivotal / Perficient team working list
 1. Cloud Native arch and security (Pivotal)
 1. PCF 2.0 - Pivotal Application Service (PAS) and Pivotal Container Service (PKS) Overview (Pivotal)
 1. What's new in PCF 2.1 (Pivotal)
@@ -46,10 +46,10 @@ Time | Session
 10:30 AM - 10:45 AM | _Break_
 10:45 AM - 11:15 AM | _Session 3: What's new in PCF 2.1?_ __(Pivotal -> Sharath)__
 11:15 AM - 12:00 PM | _Session 4: PCF Application Deployment Labs_ __(Perficient)__
-12:00 PM - 1:00 PM | _Working Lunch with Perficient guest speaker - Project Experiences_ __(Perficient)__
-1:00 PM - 2:00 PM | _Session 5: Spring Boot and Actuator with Lab_ __(Pivotal / Perficient)__
-2:00 PM - 3:00 PM | _Session 6: Spring Cloud Data Flow on PCF with Lab_ __()__
-3:00 PM - 4:00 PM | _Session 7: Scaling Apps with the new Autoscaler CLI with Lab_ __()__
+12:00 PM - 1:00 PM | _Working Lunch with Perficient guest speaker - Project Experiences_ __(Perficient -> who?)__
+1:00 PM - 2:00 PM | _Session 5: Spring Boot and Actuator with Lab_ __(Pivotal / Perficient -> who?)__
+2:00 PM - 3:00 PM | _Session 6: Spring Cloud Data Flow on PCF with Lab_ __(Pivotal -> Jenny)__
+3:00 PM - 4:00 PM | _Session 7: Scaling Apps with the new Autoscaler CLI with Lab_ __(Pivotal -> Cory)__
 4:00 PM - 4:30 PM | _Wrap-up, Q&A, Course evaluation_
 
 _*See [Course Materials](#course-materials) section below for slides and labs_
