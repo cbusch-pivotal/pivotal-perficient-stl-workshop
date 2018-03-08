@@ -34,8 +34,8 @@ Time | Session
 10:45 AM - 11:15 AM | _Session 3: What's new in PCF 2.1?_ __(Pivotal -> Sharath)__
 11:15 AM - 12:00 PM | _Session 4: PCF Application Deployment Labs_ __(Perficient)__
 12:00 PM - 1:00 PM | _Working Lunch with Perficient guest speaker - Project Experiences_ __(Perficient -> who?)__
-1:00 PM - 2:00 PM | _Session 5: Spring Boot and Actuator with Lab_ __(Pivotal / Perficient -> who?)__
-2:00 PM - 2:45 PM | _Session 6: Spring Cloud Data Flow on PCF with Lab_ __(Perficient / Pivotal -> who? with Jenny)__ create datasource, load data, create flow to transform and push to a destination
+1:00 PM - 1:45 PM | _Session 5: Spring Boot and Actuator with Lab_ __(Pivotal / Perficient -> who?)__
+1:45 PM - 2:45 PM | _Session 6: Spring Cloud Data Flow on PCF with Lab_ __(Perficient / Pivotal -> who? with Jenny)__ create datasource, load data, create flow to transform and push to a destination
 2:45 PM - 3:00 PM | _Break_
 3:00 PM - 3:45 PM | _Session 7: Scaling Apps with the new Autoscaler CLI with Lab_ __(Pivotal -> who?)__
 3:45 PM - 4:00 PM | _Session 8: PCF Metrics and PCF Healthwatch Overview_ __(Pivotal -> Chris)__
@@ -84,19 +84,18 @@ Finally, in order to perform the labs, you must be connected or logged into a li
 #### _Session 4: PCF Application Deployment Labs_
   - [Lab 1 - From Zero to Pushing Your First Application](session_04/lab_01/lab_01.adoc)
   - [Lab 2 - Binding to Cloud Foundry Services](session_04/lab_02/lab_02.adoc)
-  - [Lab 3 - Scaling Applications](session_04/lab_03/lab_03.adoc)
-  - [Lab 4 - Monitoring Applications](session_04/lab_04/lab_04.adoc)
+  - [Lab 3 - Scaling Applications with Apps Manager](session_04/lab_03/lab_03.adoc)
 
 #### _Lunch Session: Perficient_ [(Slides)](session_lunch/perficient-projects.pdf)
 
 #### _Session 5: Spring Boot and Actuator with Lab_ [(Slides)](session_05/Session_03-Spring_Boot_and_Actuator.pdf)
-  - [Lab 5 - Introspection, Monitoring, and Metrics using Spring Boot Actuator](session_05/lab_05/lab_05.adoc)
+  - [Lab 4 - Introspection, Monitoring, and Metrics using Spring Boot Actuator](session_05/lab_04/lab_04.adoc)
 
 #### _Session 6: Spring Cloud Data Flow on PCF_ [(Slides)](session_06/Session_06-SCDF_on_PCF.pdf)
-  - [Lab 6 - Leveraging Spring Cloud Data Flow](session_06/lab_06/lab_06.adoc)
+  - [Lab 5 - Leveraging Spring Cloud Data Flow](session_06/lab_05/lab_05.adoc)
 
 #### _Session 7: Scaling Apps with the new Autoscaler CLI with Lab_ [(Slides)](session_07/Session_07-Scaling_Apps_with_Autoscaler.pdf)
-  - [Lab 7 - Using PCF Autoscaler](session_07/lab_07/lab_07.adoc)
+  - [Lab 6 - Using PCF Autoscaler](session_07/lab_06/lab_06.adoc)
 
 #### _Session 8: PCF Metrics and PCF Healthwatch Overview_ [(Slides)](session_08/Session_08-PCF_Metrics_Healthwatch.pdf)
 
