@@ -28,17 +28,17 @@ __NOTE__: Space is limited. Please register for the workshop [here](http://conne
 Time | Session
 ---- | -------
 8:30 AM - 9:00 AM | _Registration and Breakfast_
-9:00 AM - 9:30 AM | _Session 1: Cloud Native Architectures & Security_ __(Pivotal -> Steve)__
-9:30 AM - 10:30 AM | _Session 2: Pivotal Cloud Foundry (PCF)2.0 Overview with Pivotal Application Service (PAS) and Pivotal Container Service (PKS)_ __(Pivotal -> Chris)__
+9:00 AM - 9:30 AM | _Session 1: Cloud Native Architectures & Security_
+9:30 AM - 10:30 AM | _Session 2: Pivotal Cloud Foundry (PCF)2.0 Overview with Pivotal Application Service (PAS) and Pivotal Container Service (PKS)_
 10:30 AM - 10:45 AM | _Break_
-10:45 AM - 11:15 AM | _Session 3: What's new in PCF 2.1?_ __(Pivotal -> Sharath)__
-11:15 AM - 12:00 PM | _Session 4: PCF Application Deployment Labs_ __(Perficient)__
-12:00 PM - 1:00 PM | _Working Lunch with Perficient guest speaker - Project Experiences_ __(Perficient -> who?)__
-1:00 PM - 1:45 PM | _Session 5: Spring Boot and Actuator with Lab_ __(Pivotal / Perficient -> who?)__
-1:45 PM - 2:45 PM | _Session 6: Spring Cloud Data Flow on PCF with Lab_ __(Perficient / Pivotal -> who? with Jenny)__ create datasource, load data, create flow to transform and push to a destination
+10:45 AM - 11:15 AM | _Session 3: What's new in PCF 2.1?_
+11:15 AM - 12:00 PM | _Session 4: PCF Application Deployment Labs_
+12:00 PM - 1:00 PM | _Working Lunch with Perficient guest speaker - Project Experiences_
+1:00 PM - 1:45 PM | _Session 5: Spring Boot and Actuator with Lab_
+1:45 PM - 2:45 PM | _Session 6: Spring Cloud Data Flow on PCF with Lab_ (create datasource, load data, create flow to transform and push to a destination)
 2:45 PM - 3:00 PM | _Break_
-3:00 PM - 3:45 PM | _Session 7: Scaling Apps with the new Autoscaler CLI with Lab_ __(Pivotal -> who?)__
-3:45 PM - 4:00 PM | _Session 8: PCF Metrics and PCF Healthwatch Overview_ __(Pivotal -> Chris)__
+3:00 PM - 3:45 PM | _Session 7: Scaling Apps with the new Autoscaler CLI with Lab_
+3:45 PM - 4:00 PM | _Session 8: PCF Metrics and PCF Healthwatch Overview_
 4:00 PM - 4:30 PM | _Wrap-up, Q&A, Course evaluation_
 
 _*See [Course Materials](#course-materials) section below for slides and labs_
