@@ -22,19 +22,19 @@ Follow the prompts, choosing default organization and space.
 
 == Build and Push!
 
-. Change to the _Spring Music_ sample application directory:
+. Change to the _Attendees_ sample application directory:
 +
 ----
-$ cd $COURSE_HOME/session_02/lab_01/spring-music
+$ cd $COURSE_HOME/session_04/attendees
 ----
 
-. Using the Gradle Wrapper, build and package the application:
+. Using the Maven Wrapper, build and package the application:
 +
 ----
-$ ./gradlew assemble
+$ ./mvnw -Pws -DskipTests=true clean install
 ----
 +
-The Gradle Wrapper will automatically download the appropriate version of Gradle for this project along with all of _Spring Music_'s dependencies. This may take a few moments.
+The Gradle Wrapper will automatically download the appropriate version of Gradle for this project along with all of _Attendees_'s dependencies. This may take a few moments.
 
 
 . Push the application!
@@ -47,24 +47,24 @@ You should see output similar to the following listing. Take a look at the listi
 +
 ====
 ----
-Using manifest file /Users/pivotal/cbusch/stl-cloud-native-spring-workshop/session_02/lab_01/spring-music/manifest.yml <1>
+Using manifest file /Users/pivotal/cbusch/pivotal-perficient-stl-workshop/session_04/attendees/manifest.yml <1>
 
-Creating app spring-music in org oreilly-class / space instructor as cbusch@pivotal.io...
+Creating app attendees in org workshop / space instructor as cbusch@pivotal.io...
 OK <2>
 
-Creating route spring-music-hippest-shaman.cfapps.io...
+Creating route attendees-hippest-shaman.cfapps.io...
 OK <3>
 
-Binding spring-music-hippest-shaman.cfapps.io to spring-music...
+Binding attendees-hippest-shaman.cfapps.io to attendees...
 OK <4>
 
-Uploading spring-music... <5>
-Uploading app files from: /Users/pivotal/cbusch/stl-cloud-native-spring-workshop/session_02/lab_01/spring-music/build/libs/spring-music.war
+Uploading attendees... <5>
+Uploading app files from: /Users/pivotal/cbusch/pivotal-perficient-stl-workshop/session_04/attendees/target/attendees-0.0.1.jar
 Uploading 569.7K, 90 files
 Done uploading
 OK
 
-Starting app spring-music in org oreilly-class / space instructor as cbusch@pivotal.io... <6>
+Starting app attendees in org oreilly-class / space instructor as cbusch@pivotal.io... <6>
 -----> Downloaded app package (21M)
 -----> Java Buildpack Version: v2.6.1 |  https://github.com/cloudfoundry/java-buildpack.git#2d92e70
 -----> Downloading Open Jdk JRE 1.8.0_31 from https://download.run.pivotal.io/openjdk/lucid/x86_64/openjdk-1.8.0_31.tar.gz (1.3s)
@@ -85,15 +85,15 @@ App started
 
 OK
 
-App spring-music was started using this command `JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh -Xmx382293K -Xms382293K -XX:MaxMetaspaceSize=64M -XX:MetaspaceSize=64M -Xss995K -Daccess.logging.enabled=false -Dhttp.port=$PORT" $PWD/.java-buildpack/tomcat/bin/catalina.sh run` <10>
+App attendees was started using this command `JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh -Xmx382293K -Xms382293K -XX:MaxMetaspaceSize=64M -XX:MetaspaceSize=64M -Xss995K -Daccess.logging.enabled=false -Dhttp.port=$PORT" $PWD/.java-buildpack/tomcat/bin/catalina.sh run` <10>
 
-Showing health and status for app spring-music in org oreilly-class / space instructor as cbusch@pivotal.io... <11>
+Showing health and status for app attendees in org workshop / space instructor as cbusch@pivotal.io... <11>
 OK
 
 requested state: started
 instances: 1/1
 usage: 512M x 1 instances
-urls: spring-music-hippest-shaman.cfapps.io
+urls: attendees-hippest-shaman.cfapps.io
 last uploaded: Fri Feb 13 15:43:08 UTC 2015
 
      state     since                    cpu    memory           disk
@@ -102,7 +102,7 @@ last uploaded: Fri Feb 13 15:43:08 UTC 2015
 <1> The CLI is using a manifest to provide necessary configuration details such as application name, memory to be allocated, and path to the application artifact.
 Take a look at `manifest.yml` to see how.
 <2> In most cases, the CLI indicates each Cloud Foundry API call as it happens.
-In this case, the CLI has created an application record for _Spring Music_ in your assigned space.
+In this case, the CLI has created an application record for _Attendees_ in your assigned space.
 <3> All HTTP/HTTPS requests to applications will flow through Cloud Foundry's front-end router called http://docs.cloudfoundry.org/concepts/architecture/router.html[(Go)Router].
 Here the CLI is creating a route with random word tokens inserted (again, see `manifest.yml` for a hint!) to prevent route collisions across the default `cfapps.io` domain.
 <4> Now the CLI is _binding_ the created route to the application.
@@ -115,17 +115,17 @@ Routes can actually be bound to multiple applications to support techniques such
 Here the droplet is being uploaded to PWS's internal blobstore so that it can be easily copied to one or more _http://docs.cloudfoundry.org/concepts/architecture/execution-agent.html[Droplet Execution Agents (DEA's)]_ for execution.
 <10> The CLI tells you exactly what command and argument set was used to start your application.
 <11> Finally the CLI reports the current status of your application's health.
-You can get the same output at any time by typing `cf app spring-music`.
+You can get the same output at any time by typing `cf app attendees`.
 ====
 
 . Visit the application in your browser by hitting the route that was generated by the CLI.
 +
-In the example `cf push` above, the `urls:` section of the application health reports `spring-music-hippest-shaman.cfapps.io`, so http://spring-music-hippest-shaman.cfapps.io would have been used to examine this example deployed application. But use the url from your application deployment health report.
+In the example `cf push` above, the `urls:` section of the application health reports `attendees-hippest-shaman.cfapps.io`, so http://attendees-hippest-shaman.cfapps.io would have been used to examine this example deployed application. But use the url from your application deployment health report.
 +
-image::/../../Common/images/Spring_Music_NS.png[]
+image::/../../common/images/Attendees_NS.png[]
 +
 Be sure to click on the ``information icon'' in the top right-hand corner of the UI.
-This gives you important information about the state of the currently running _Spring Music_ instance, including what Spring Profiles are turned on and what Cloud Foundry services are bound.
+This gives you important information about the state of the currently running _Attendees_ instance, including what Spring Profiles are turned on and what Cloud Foundry services are bound.
 It will become important in the next lab!
 
-link:/README.md#course-materials[Course Materials home] | link:/session_02/lab_02/lab_02.adoc[Lab 2 - Binding to Cloud Foundry Services]
+link:/README.md#course-materials[Course Materials home] | link:/session_04/lab_02/lab_02.adoc[Lab 2 - Binding to Cloud Foundry Services]
