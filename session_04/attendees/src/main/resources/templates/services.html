@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/layout :: head">
+</head>
+
+<body>
+
+
+	<nav th:replace="fragments/layout :: navigation"></nav>
+	<!--  PAGE BODY -->
+	<div class="container" role="main">
+
+		<span id="tutorialName" style="display: none;">services</span>
+
+		<div class="page-header">
+			<p>&nbsp;</p>
+			<h1>Services</h1>
+		</div>
+
+
+		<div class="row">
+			<div class="col-md-12">
+				<p>By now we understand a bit about how applications are being
+					managed in PCF, what about services? Let's think of services as
+					external application dependencies like a datastore or messaging
+					system. But it can represent many other things that we would not
+					typically think of it.</p>
+
+				<p>Remember the application diagram from the main page?</p>
+
+				<p>
+					We often hear about <b>The Twelve-Factor App</b> as a great
+					methodology for building modern applications. Pivotal Cloud Foundry
+					Service strategy is very much like <a
+						href="http://12factor.net/backing-services">IV - Backing
+						Services factor</a>. Services are <i>attached</i>, in PCF case, <i>bound</i>
+					to applications.
+				</p>
+			</div>
+
+		</div>
+
+
+		<div class="row">
+
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div id="bluegreenBlock">
+							<h4>Attendees Database Tool</h4>
+
+							<div class="row">
+								<form id="attendee-form" class="form-inline"
+									action="add-attendee" method="post" role="form">
+									<div class="col-xs-2">
+										<input type="text" class="form-control" required="required"
+											id="firstName" placeholder="First" name="firstName"></input>
+									</div>
+									<div class="col-xs-2">
+										<input type="text" class="form-control" required="required"
+											id="lastName" placeholder="Last" name="lastName"></input>
+									</div>
+									<div class="col-xs-4">
+										<input type="email" class="form-control" required="required"
+											id="emailAddress" placeholder="Email" name="emailAddress"></input>
+									</div>
+									<div class="col-xs-2">
+										<button type="submit" class="btn btn-primary ">Add
+											Attendee</button>
+									</div>
+								</form>
+							</div>
+
+						</div>
+						<table th:replace="fragments/list :: attendeeList">
+						</table>
+
+					</div>
+					<div class="panel-footer clearfix">
+						<div class="pull-right">
+							<a href="/services" class="btn btn-default">Refresh</a> <a
+								href="/clean" class="btn btn-danger">Erase All Records</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div th:replace="fragments/layout :: tutorial"></div>
+			</div>
+
+		</div>
+		<!-- ROW -->
+
+	</div>
+	<!-- CONTAINER -->
+
+	<!--  /.PAGE BODY -->
+
+	<footer th:replace="fragments/layout :: footer" class="footer">
+	</footer>
+
+	<script th:replace="fragments/layout :: app-instance-script"></script>
+
+</body>
+
+</html>

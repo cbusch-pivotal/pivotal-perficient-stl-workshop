@@ -1,0 +1,136 @@
+resources:
+  - name: attendees-repo
+    type: git
+    source:
+      #uri: {{github-pcf-ers-uri}}
+      #branch: {{github-pcf-ers-branch}}
+      uri: {{github-attendees-uri}}
+      branch: {{github-attendees-branch}}
+
+  - name: version
+    type: semver
+    source:
+      bucket: {{s3-bucket-version}}
+      key: current-version
+      access_key_id: {{s3-access-key-id}}
+      secret_access_key: {{s3-secret-access-key}}
+      initial_version: 0.0.1
+      endpoint: {{s3-endpoint}}
+
+  - name: app-release
+    type: s3
+    source:
+      bucket: {{s3-bucket-releases}}
+      regexp: attendees-(.*).jar
+      access_key_id: {{s3-access-key-id}}
+      secret_access_key: {{s3-secret-access-key}}
+      endpoint: {{s3-endpoint}}
+
+  - name: cf-prod
+    type: cf
+    source:
+      ### Use PCF1 environment ###
+      api: {{cf-pcf1-api}}
+      username: {{cf-pcf1-username}}
+      password: {{cf-pcf1-password}}
+      organization: {{cf-pcf1-org}}
+      space: {{cf-pcf1-space}}
+      skip_cert_check: true
+
+  - name: cf-test
+    type: cf
+    source:
+      ### Use PWS environment
+      api: {{cf-pws-api}}
+      username: {{cf-pws-username}}
+      password: {{cf-pws-password}}
+      organization: {{cf-pws-org}}
+      space: {{cf-pws-space}}
+      skip_cert_check: true
+
+      ### Use pcfdev environment ###
+      # api: {{cf-dev-api}}
+      # username: {{cf-dev-username}}
+      # password: {{cf-dev-password}}
+      # organization: {{cf-dev-org}}
+      # space: {{cf-dev-space}}
+      # skip_cert_check: true
+
+jobs:
+  - name: build-app
+    plan:
+      - get: attendees-repo
+        trigger: true
+      - get: version
+        params: {bump: patch}
+      - task: build
+        file: attendees-repo/ci/tasks/build.yml
+      - put: app-release
+        params: { file: build-output/target/attendees-*.jar}
+      - put: version
+        params: { file: version/number }
+
+  - name: deploy-test
+    plan:
+      - aggregate:
+        - get: app-release
+          passed: [build-app]
+          trigger: true
+        - get: attendees-repo
+        - get: version
+      - task: prepare-manifest
+        file: attendees-repo/ci/tasks/prepare-manifest.yml
+      - put: cf-test
+        params:
+          manifest: prepare-manifest/manifest.yml
+
+  - name: test-app
+    plan:
+      - aggregate:
+        - get: app-release
+          passed: [deploy-test]
+          trigger: true
+        - get: attendees-repo
+      - task: test
+        file: attendees-repo/ci/tasks/test.yml
+
+  - name: blue-deploy-prod
+    plan:
+      - aggregate:
+        - get: attendees-repo
+        - get: version
+        - get: app-release
+          passed: [test-app]
+          trigger: true
+      - task: prod-manifest
+        file: attendees-repo/ci/tasks/prod-manifest.yml
+      - put: cf-prod
+        params:
+          manifest: prod-manifest/manifest.yml
+
+  - name: finalize-blue-green
+    serial: true
+    plan:
+      - aggregate:
+        - get: attendees-repo
+          passed: [blue-deploy-prod]
+          trigger: true
+        - get: version
+      - task: finalize-deploy
+        file: attendees-repo/ci/tasks/finalize-deploy.yml
+        params:
+          ### PCF1
+          CF_API_ENDPOINT: {{cf-pcf1-api}}
+          CF_DOMAIN: {{cf-pcf1-domain}}
+          CF_USER: {{cf-pcf1-username}}
+          CF_PWD: {{cf-pcf1-password}}
+          CF_ORG: {{cf-pcf1-org}}
+          CF_SPACE: {{cf-pcf1-space}}
+          ### PWS
+          # CF_API_ENDPOINT: {{cf-pws-api}}
+          # CF_DOMAIN: {{cf-pws-domain}}
+          # CF_USER: {{cf-pws-username}}
+          # CF_PWD: {{cf-pws-password}}
+          # CF_ORG: {{cf-pws-org}}
+          # CF_SPACE: {{cf-pws-space}}
+

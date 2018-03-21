@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+</head>
+
+<body>
+
+	<table id="resultsBlock" th:fragment="attendeeList"
+		class="table table-fixed">
+		<thead>
+			<tr>
+				<th class="col-xs-3">First Name</th>
+				<th class="col-xs-3">Last Name</th>
+				<th class="col-xs-6">Email Address</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="attendee : ${attendees}">
+				<td class="col-xs-3" th:text="${attendee.firstName}" />
+				<td class="col-xs-3" th:text="${attendee.lastName}" />
+				<td class="col-xs-6" th:text="${attendee.emailAddress}" />
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>

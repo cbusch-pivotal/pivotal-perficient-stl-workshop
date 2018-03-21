@@ -1,0 +1,29 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: java
+    tag: '8'
+
+params:
+  CF_MANIFEST_HOST: attendees
+
+inputs:
+  - name: attendees-repo
+  - name: app-release
+  - name: version
+
+outputs:
+  - name: prod-manifest
+run:
+  path: attendees-repo/ci/tasks/prod-manifest.sh
+  args: [
+    --input-dir, app-release,
+    --output-dir, prod-manifest,
+    --version-file, version/number,
+    --input-manifest, attendees-repo/manifest.yml,
+    --artifactId, attendees,
+    --packaging, jar
+  ]
