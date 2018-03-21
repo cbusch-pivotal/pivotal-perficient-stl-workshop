@@ -77,39 +77,40 @@ Finally, in order to perform the labs, you must be connected or logged into a li
 
 PowerPoint template for slides (Dave to talk with Marketing team)
 
-#### _Session 1: Cloud Native Architectures & Security_ [(Slides)](session_01/Session_01-Cloud_Native_Architectures_and_Security.pptx) (Owner: Dave S, looking for a resource)
+#### _Session 1: Cloud Native Architectures & Security_ [(Slides)](session_01/Session_01-Cloud_Native_Architectures_and_Security.pptx) (Owner: Vishal Sharma)
 
-#### _Session 2: Pivotal Cloud Foundry (PCF) 2.0 Overview with Pivotal Application Service (PAS) and Pivotal Container Service (PKS)_ [(Slides)](session_02/Session_02-PCF-PAS-PKS-Overview.pptx) (Owner: Chris B.)
+#### _Session 2: Pivotal Cloud Foundry (PCF) 2.0 Overview with Pivotal Application Service (PAS) and Pivotal Container Service (PKS)_ [(Slides)](session_02/Session_02-PCF-PAS-PKS-Overview.pptx) (Owner: Sharath Sahadevan)
 
-#### _Session 3: What's new in PCF 2.1?_ [(Slides)](session_03/Session_03-Whats-New-in-PCF-21.pptx) (Owner: Chris B.)
+#### _Session 3: What's new in PCF 2.1?_ [(Slides)](session_03/Session_03-Whats-New-in-PCF-21.pptx) (Owner: Chris Busch)
 
-#### _Session 4: PCF Application Deployment Labs_ (Owner: DJ, using [Attendees app](session_04/attendees))
+#### _Session 4: PCF Application Deployment Labs_ (Owner: DJ Kaiping, using [Attendees app](session_04/attendees))
   - [Lab 1 - From Zero to Pushing Your First Application](session_04/lab_01/lab_01.adoc)
   - [Lab 2 - Binding to Cloud Foundry Services](session_04/lab_02/lab_02.adoc)
   - [Lab 3 - Scaling Applications with Apps Manager](session_04/lab_03/lab_03.adoc)
 
-#### _Lunch Session: Perficient_ [(Slides)](session_lunch/Session_Lunch-Perficient-Projects.pptx) (Owner: Dave looking for team)
+#### _Lunch Session: Perficient_ [(Slides)](session_lunch/Session_Lunch-Perficient-Projects.pptx) (Owner: Vishal Sharma or local team)
 
-#### _Session 5: Spring Boot 2.0 and Actuator with Lab_ [(Slides)](session_05/Session_05-Spring-Boot-20-and-Actuator.pptx)
-  - [Lab 4 - Introspection, Monitoring, and Metrics using Spring Boot Actuator](session_05/lab_04/lab_04.adoc) (Owner: Pivotal because of 2.0 updates)
+#### _Session 5: Spring Boot 2.0 and Actuator with Lab_ [(Slides)](session_05/Session_05-Spring-Boot-20-and-Actuator.pptx) (Owner: Steve Womack)
+  - [Lab 4 - Introspection, Monitoring, and Metrics using Spring Boot Actuator](session_05/lab_04/lab_04.adoc) 
 
-#### _Session 6: Spring Cloud Data Flow on PCF_ [(Slides)](session_06/Session_06-Spring-Cloud-Data-Flow.pptx)
-  - [Lab 5 - Leveraging Spring Cloud Data Flow](session_06/lab_05/lab_05.adoc) (Owner: Pivotal)
+#### _Session 6: Spring Cloud Data Flow on PCF_ [(Slides)](session_06/Session_06-Spring-Cloud-Data-Flow.pptx) (Owner: Jenny McLaughlin)
+  - [Lab 5 - Leveraging Spring Cloud Data Flow](session_06/lab_05/lab_05.adoc)
 
-#### _Session 7: Scaling Apps with the new Autoscaler CLI with Lab_ [(Slides)](session_07/Session_07-Scaling-Apps-Autoscaler-CLI.pptx)
-  - [Lab 6 - Using PCF Autoscaler](session_07/lab_06/lab_06.adoc) (Owner: DJ - Chris to point DJ in direction)
+#### _Session 7: Scaling Apps with the new Autoscaler CLI with Lab_ [(Slides)](session_07/Session_07-Scaling-Apps-Autoscaler-CLI.pptx)  (Owner: DJ Kaiping and Chris Busch)
+  - [Lab 6 - Using PCF Autoscaler](session_07/lab_06/lab_06.adoc)
 
-#### _Session 8: PCF Metrics and PCF Healthwatch Overview_ [(Slides)](session_08/Session_08-PCF-Metrics-Healthwatch.pptx) (Owner: Chris)
+#### _Session 8: PCF Metrics and PCF Healthwatch Overview_ [(Slides)](session_08/Session_08-PCF-Metrics-Healthwatch.pptx) (Owner: Cory Jett)
 
-#### _Wrap-up, Q&A, Course evaluation_ [(Slides)](session_wrapup/Session_Wrap-up.pdf) [(Evaluation)]()
-
-Google Form for Evaluation: (Owner: Daniel to provide questions - Chris B to help)
+#### _Wrap-up, Q&A, Course evaluation_ [(Slides)](session_wrapup/Session_Wrap-up.pdf) [(Evaluation)]() (Owner: Daniel Hawthorne)
 
 ## Hosts and Instructors
-- Chris Busch, Pivotal Platform Architect, cbusch@pivotal.io
-- Dave Stockmann, Perficient Principle Architect, dave.stockmann@perficient.com
-- Cory Jett, Pivotal Platform Architect, cjett@pivotal.io
-- Jenny McLaughlin, Pivotal Platform Architect, jmclaughlin@pivotal.io
+- Vishal Sharma, Perficient, Vishal.Sharma@perficient.com
 - Sharath Sahadevan, Pivotal Platform Achitect, ssahadevan@pivotal.io
+- Chris Busch, Pivotal Platform Architect, cbusch@pivotal.io
+- DJ Kaiping, Perficient, dj.kaiping@perficient.com
 - Steve Womack, Pivotal Platform Architect, swomack@pivotal.io
-- SALES TEAM????
+- Jenny McLaughlin, Pivotal Platform Architect, jmclaughlin@pivotal.io
+- Cory Jett, Pivotal Platform Architect, cjett@pivotal.io
+- Dave Stockmann, Perficient Principle Architect, dave.stockmann@perficient.com
+- Daniel Hawthorne, Pivotal Account Executive, dhawthorne@pivotal.io
+...
