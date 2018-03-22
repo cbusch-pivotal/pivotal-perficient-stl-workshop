@@ -1,4 +1,4 @@
-# PCF & Spring Workshop
+# Pivotal Cloud Foundry (PCF) & Spring Workshop
 ## Pivotal Software and Perficient St. Louis
 Join Pivotal and Perficient for a full-day hands-on workshop to introduce key concepts in modern cloud-native application development and delivery. This workshop will introduce concepts of cloud-native, Spring and .Net application development, container workload deployments with [Pivotal Cloud Foundry](https://pivotal.io/platform), as well as application monitoring with PCF Metrics and platform monitoring with PCF Healthwatch. The labs will leverage Spring Boot 2.0, Spring Actuator, Spring Cloud Data Flow for PCF, and other PCF 2.0 topics.
 
@@ -29,19 +29,21 @@ Time | Session
 ---- | -------
 8:30 AM - 9:00 AM | _Registration and Breakfast_
 9:00 AM - 9:30 AM | _Session 1: Cloud Native Architectures & Security_
-9:30 AM - 10:30 AM | _Session 2: Pivotal Cloud Foundry (PCF)2.0 Overview with Pivotal Application Service (PAS) and Pivotal Container Service (PKS)_
+9:30 AM - 10:30 AM | _Session 2: PCF 2.0 Overview*_
 10:30 AM - 10:45 AM | _Break_
 10:45 AM - 11:15 AM | _Session 3: What's new in PCF 2.1?_
 11:15 AM - 12:00 PM | _Session 4: PCF Application Deployment Labs_
 12:00 PM - 1:00 PM | _Working Lunch with Perficient guest speaker - Project Experiences_
 1:00 PM - 1:45 PM | _Session 5: Spring Boot and Actuator with Lab_
-1:45 PM - 2:45 PM | _Session 6: Spring Cloud Data Flow on PCF with Lab_ (create datasource, load data, create flow to transform and push to a destination)
+1:45 PM - 2:45 PM | _Session 6: Spring Cloud Data Flow on PCF with Lab_
 2:45 PM - 3:00 PM | _Break_
 3:00 PM - 3:45 PM | _Session 7: Scaling Apps with the new Autoscaler CLI with Lab_
-3:45 PM - 4:00 PM | _Session 8: PCF Metrics and PCF Healthwatch Overview_
-4:00 PM - 4:30 PM | _Wrap-up, Q&A, Course evaluation_
+3:45 PM - 4:10 PM | _Session 8: PCF Metrics and PCF Healthwatch Overview_
+4:10 PM - 4:30 PM | _Wrap-up, Q&A, Course evaluation_
 
-_*See [Course Materials](#course-materials) section below for slides and labs_
+_*with Pivotal Application Service (PAS) and Pivotal Container Service (PKS)_
+
+_**Note:** See [Course Materials](#course-materials) section below for slides and labs_
 
 This is a _loose_ schedule for the day. We will adjust as necessary based on our pace through the material.
 
@@ -94,7 +96,7 @@ PowerPoint template for slides (Dave to talk with Marketing team)
   - [Lab 4 - Introspection, Monitoring, and Metrics using Spring Boot Actuator](session_05/lab_04/lab_04.adoc) 
 
 #### _Session 6: Spring Cloud Data Flow on PCF_ [(Slides)](session_06/Session_06-Spring-Cloud-Data-Flow.pptx) (Owner: Jenny McLaughlin)
-  - [Lab 5 - Leveraging Spring Cloud Data Flow](session_06/lab_05/lab_05.adoc)
+  - [Lab 5 - Leveraging Spring Cloud Data Flow](session_06/lab_05/lab_05.adoc) (create datasource, load data, create flow to transform and push to a destination)
 
 #### _Session 7: Scaling Apps with the new Autoscaler CLI with Lab_ [(Slides)](session_07/Session_07-Scaling-Apps-Autoscaler-CLI.pptx)  (Owner: DJ Kaiping and Chris Busch)
   - [Lab 6 - Using PCF Autoscaler](session_07/lab_06/lab_06.adoc)
