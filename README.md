@@ -15,7 +15,7 @@ Join Pivotal and Perficient for a full-day hands-on workshop to introduce key co
 
 _This workshop is intended for: Managers, Architects, Developers, Operators and Infrastructure teams to learn about cloud-native architecture and Pivotal Cloud Foundry._
 
-__NOTE__: Space is limited. Please register for the workshop [here](http://connect.pivotal.io/PCF-Spring-Workshop-Pivotal-Perficient.html) today.
+> __NOTE__: Space is limited. Please register for the workshop [here](http://connect.pivotal.io/PCF-Spring-Workshop-Pivotal-Perficient.html) today.
 
 ## Other Events of Interest
 - [SpringOne Tour by Pivotal](https://springonetour.io/), [St. Louis May 30-31 at T-Rex](https://springonetour.io/2018/st-louis). Cloud-Native Java From the Source: The SpringOne Tour brings the best Cloud-Native Java content from our flagship conference directly to you. In 2 days, you’ll learn about both traditional monolithic and modern, Cloud-Native Java from the source. Experience valuable facetime with expert Pivotal speakers in both traditional presentation and informal open space discussions about modern Application Development, DevOps, CI/CD, Cloud and more.
@@ -43,12 +43,14 @@ Time | Session
 
 _*with Pivotal Application Service (PAS) and Pivotal Container Service (PKS)_
 
-_**Note:** See [Course Materials](#course-materials) section below for slides and labs_
+**Notes** 
 
-This is a _loose_ schedule for the day. We will adjust as necessary based on our pace through the material.
-
-The lectures for this workshop are generally light and are only intended to set the stage for the hands-on labs.
-The overwhelming majority of our time will be spent engaging with the technology directly!
+> See [Course Materials](#course-materials) section below for slides and labs
+>
+> This is a _loose_ schedule for the day. We will adjust as necessary based on our pace through the material.
+>
+> The lectures for this workshop are generally light and are only intended to set the stage for the hands-on labs.
+> The overwhelming majority of our time will be spent engaging with the technology directly!
 
 ## Getting started
 
