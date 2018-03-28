@@ -94,7 +94,7 @@ PowerPoint template for slides (Dave to talk with Marketing team)
 
 #### _Lunch Session: Perficient_ [(Slides)](session_lunch/Session_Lunch-Perficient-Projects.pptx) (Owner: Vishal Sharma or local team)
 
-#### _Session 5: Spring Boot 2.0 and Actuator with Lab_ [(Slides)](session_05/Session_05-Spring-Boot-20-and-Actuator.pptx) (Owner: Steve Womack)
+#### _Session 5: Spring Boot 2.0 and Actuator with Lab_ [(Slides)](session_05/Session_05-Spring-Boot-20-and-Actuator.pptx) (Owner: Sharath Sahadevan)
   - [Lab 4 - Introspection, Monitoring, and Metrics using Spring Boot Actuator](session_05/lab_04/lab_04.adoc) 
 
 #### _Session 6: Spring Cloud Data Flow on PCF_ [(Slides)](session_06/Session_06-Spring-Cloud-Data-Flow.pptx) (Owner: Chris Busch)
