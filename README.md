@@ -97,7 +97,7 @@ PowerPoint template for slides (Dave to talk with Marketing team)
 #### _Session 5: Spring Boot 2.0 and Actuator with Lab_ [(Slides)](session_05/Session_05-Spring-Boot-20-and-Actuator.pptx) (Owner: Steve Womack)
   - [Lab 4 - Introspection, Monitoring, and Metrics using Spring Boot Actuator](session_05/lab_04/lab_04.adoc) 
 
-#### _Session 6: Spring Cloud Data Flow on PCF_ [(Slides)](session_06/Session_06-Spring-Cloud-Data-Flow.pptx) (Owner: Jenny McLaughlin)
+#### _Session 6: Spring Cloud Data Flow on PCF_ [(Slides)](session_06/Session_06-Spring-Cloud-Data-Flow.pptx) (Owner: Chris Busch)
   - [Lab 5 - Leveraging Spring Cloud Data Flow](session_06/lab_05/lab_05.adoc) (create datasource, load data, create flow to transform and push to a destination)
 
 #### _Session 7: Scaling Apps with the new Autoscaler CLI with Lab_ [(Slides)](session_07/Session_07-Scaling-Apps-Autoscaler-CLI.pptx)  (Owner: DJ Kaiping and Chris Busch)
