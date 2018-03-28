@@ -1,5 +1,8 @@
 = Lab 5 - Leveraging Spring Cloud Data Flow
 
 This lab is based off the article link:https://content.pivotal.io/blog/building-flexible-data-pipelines-with-spring-cloud-data-flow-for-pcf[Building Flexible Data Pipelines with Spring Cloud Data Flow for PCF] written by Chris Sterling. Please see this article for details and lab.
++
+image::/../../common/images/scdf.png[Spring Cloud Data Flow for PCF]
+
 
 link:/README.md#course-materials[Course Materials home] | link:/session_07/lab_06/lab_06.adoc[Lab 6 - Using PCF Autoscaler]
