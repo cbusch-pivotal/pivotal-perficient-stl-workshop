@@ -2,6 +2,8 @@
 
 This lab is based off the article link:https://content.pivotal.io/blog/building-flexible-data-pipelines-with-spring-cloud-data-flow-for-pcf[Building Flexible Data Pipelines with Spring Cloud Data Flow for PCF] written by Chris Sterling. Please see this article for details and lab.
 
+Or visit the link:http://docs.pivotal.io/scdf/index.html[Spring Cloud Data Flow for PCF] documentation which includes a link:http://docs.pivotal.io/scdf/getting-started.html[Getting Started with Spring Cloud® Data Flow for PCF] lab of the same in the article, but with more lab details and images.
+
 image::/../../common/images/scdf.png[Spring Cloud Data Flow for PCF]
 
 
