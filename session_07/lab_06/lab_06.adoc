@@ -2,6 +2,7 @@
 
 
 link:https://network.pivotal.io/products/pcf-app-autoscaler[Autoscaler Download]
+
 link:https://docs.pivotal.io/pivotalcf/2-1/appsman-services/autoscaler/using-autoscaler-cli.html[Using the App Autoscaler CLI]
 
 link:/README.md#course-materials[Course Materials home]
