@@ -50,7 +50,9 @@ Developers can now create a new `p-dataflow` service instance. Configure it to u
 $ cf create-service p-dataflow standard mydataflow
 ----
 
-The service instance will be created asynchronously. Once the service instance is created successfully, you can deploy streams or launch tasks using the Data Flow server’s Dashboard or the Shell. IMPORTANT: Check the status of the service createion using:
+The service instance will be created asynchronously. Once the service instance is created successfully, you can deploy streams or launch tasks using the Data Flow server’s Dashboard or the Shell. 
+
+ IMPORTANT: Check the status of the service creation using:
 
 ----
 $ cf service mydataflow
@@ -82,7 +84,7 @@ dataflow:>
 
 Now that the Data Flow shell is attached successfully, we will use the _Service Instance Logging_ plugin to troubleshoot data pipeline issues. This plugin will stream the logs of the Data Flow service instance’s backing application logs, including its companion application-logs of Skipper and Metrics-collector.
 
-In a second terminal window, run the following command to look at the most recent logs:
+The following command can be used to look at the most recent logs for the `p-dataflow` service `mydataflow`, but isn't necessary to run at this time.
 
 ----
 $ cf service-logs mydataflow --recent
