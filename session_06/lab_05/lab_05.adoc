@@ -13,7 +13,36 @@ To install the plugin, run the following command:
 $ cf install-plugin -r CF-Community "spring-cloud-dataflow-for-pcf"
 ----
 
-Next, for the lab, visit the blog link:https://content.pivotal.io/blog/building-flexible-data-pipelines-with-spring-cloud-data-flow-for-pcf[Building Flexible Data Pipelines with Spring Cloud Data Flow for PCF]. You may read the top section of the blog or proceed directly to the section *"Getting Started: Creating Your First Data Pipeline"*.
+The `cf` CLI should still be targeted to `api.run.pivotal.io`. To check, run the following:
+
+----
+$ cf target
+api endpoint:   https://api.run.pivotal.io
+api version:    2.106.0
+user:           cbusch@pivotal.io
+org:            STLWorkshop
+space:          instructor
+----
+
+If not, reconnect using:
+
+----
+$ cf login -a api.run.pivotal.io -u <your email> -p <password>
+----
+
+Once targeted to PWS, check the PCF Marketplace for the `dataflow` services. Find the four services shown below.
+
+----
+$ cf marketplace
+....
+p-dataflow                standard    Deploys Spring Cloud Data Flow servers to orchestrate data pipelines
+p-dataflow-analytics      proxy       Proxies to the Spring Cloud Data Flow analytics service instance
+p-dataflow-messaging      proxy       Proxies to the Spring Cloud Data Flow messaging service instance
+p-dataflow-relational     proxy       Proxies to the Spring Cloud Data Flow datastore service instance
+....
+----
+
+Next, for the lab, visit the blog link:https://content.pivotal.io/blog/building-flexible-data-pipelines-with-spring-cloud-data-flow-for-pcf[Building Flexible Data Pipelines with Spring Cloud Data Flow for PCF] to create a service and use it in an example flow. You may read the top section of the blog or proceed directly to the section *"Getting Started: Creating Your First Data Pipeline"*.
 
 After the lab, visit the link:http://docs.pivotal.io/scdf/index.html[Spring Cloud Data Flow for PCF] documentation. It does includes a link:http://docs.pivotal.io/scdf/getting-started.html[Getting Started with Spring Cloud® Data Flow for PCF] lab similar to that in the article above, but with more lab details and images. Please look there for more details about _Spring Cloud Data Flow_.
 
