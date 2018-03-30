@@ -45,7 +45,7 @@ p-dataflow-relational     proxy       Proxies to the Spring Cloud Data Flow data
 
 == Lab continues in blog
 
-IMPORTANT: Check the status of `cf create-service` using `cf service <name of service>`.
+ *IMPORTANT*: Check the status of `cf create-service` using `cf service <name of service>`.
 
 Next, for the lab, visit the blog link:https://content.pivotal.io/blog/building-flexible-data-pipelines-with-spring-cloud-data-flow-for-pcf[Building Flexible Data Pipelines with Spring Cloud Data Flow for PCF] to create a service and use it in an example flow. You may read the top section of the blog or proceed directly to the section *"Getting Started: Creating Your First Data Pipeline"*.
 
