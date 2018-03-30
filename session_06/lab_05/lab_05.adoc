@@ -2,7 +2,16 @@
 
 This lab is based off the article link:https://content.pivotal.io/blog/building-flexible-data-pipelines-with-spring-cloud-data-flow-for-pcf[Building Flexible Data Pipelines with Spring Cloud Data Flow for PCF] written by Chris Sterling. Please see this article for details and lab.
 
-Or visit the link:http://docs.pivotal.io/scdf/index.html[Spring Cloud Data Flow for PCF] documentation which includes a link:http://docs.pivotal.io/scdf/getting-started.html[Getting Started with Spring Cloud® Data Flow for PCF] lab of the same in the article, but with more lab details and images.
+== FIRST, install the Cloudr Foundry CLI Plugin
+The Spring Cloud Data Flow for PCF Cloud Foundry CLI plugin is available through the Cloud Foundry Community Plugins repository.
+
+To install the plugin, run the following command:
+
+----
+$ cf install-plugin -r CF-Community "spring-cloud-dataflow-for-pcf"
+----
+
+Next, for the lab, the link:http://docs.pivotal.io/scdf/index.html[Spring Cloud Data Flow for PCF] documentation includes a link:http://docs.pivotal.io/scdf/getting-started.html[Getting Started with Spring Cloud® Data Flow for PCF] lab similar to that in the article above, but with more lab details and images. Please continue there for the lab work, after installing the CF CLI plugin.
 
 image::/../../common/images/scdf.png[Spring Cloud Data Flow for PCF]
 
