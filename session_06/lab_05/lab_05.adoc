@@ -2,7 +2,7 @@
 
 image::/../../common/images/scdf.png[Spring Cloud Data Flow for PCF,400,200]
 
-This lab is based off the blog link:https://content.pivotal.io/blog/building-flexible-data-pipelines-with-spring-cloud-data-flow-for-pcf[Building Flexible Data Pipelines with Spring Cloud Data Flow for PCF] written by Chris Sterling. This blog will be the basis for the lab. Don't bypass installing the Cloud Foundry CF CLI plugin, as below.
+This lab is based off the blog link:https://content.pivotal.io/blog/building-flexible-data-pipelines-with-spring-cloud-data-flow-for-pcf[Building Flexible Data Pipelines with Spring Cloud Data Flow for PCF] written by Chris Sterling. This blog will be the basis for the lab.
 
 == FIRST, install the Cloud Foundry CLI Plugins
 The _Spring Cloud Data Flow for PCF Cloud Foundry CLI_ and _Service Instance Logging_ plugins are important for the labs. You can install them now.
@@ -44,12 +44,136 @@ p-dataflow-relational     proxy       Proxies to the Spring Cloud Data Flow data
 ....
 ----
 
-== Lab continues in blog
+Developers can now create a new `p-dataflow` service instance. Configure it to use the default data services by running the following command:
 
- *IMPORTANT*: Check the status of `cf create-service` using `cf service <name of service>`.
+----
+$ cf create-service p-dataflow standard mydataflow
+----
 
-Next, for the lab, visit the blog link:https://content.pivotal.io/blog/building-flexible-data-pipelines-with-spring-cloud-data-flow-for-pcf[Building Flexible Data Pipelines with Spring Cloud Data Flow for PCF] to create a service and use it in an example flow. You may read the top section of the blog or proceed directly to the section *"Getting Started: Creating Your First Data Pipeline"*.
+The service instance will be created asynchronously. Once the service instance is created successfully, you can deploy streams or launch tasks using the Data Flow server’s Dashboard or the Shell. IMPORTANT: Check the status of the service createion using:
 
-After the lab, visit the link:http://docs.pivotal.io/scdf/index.html[Spring Cloud Data Flow for PCF] documentation. It does includes a link:http://docs.pivotal.io/scdf/getting-started.html[Getting Started with Spring Cloud® Data Flow for PCF] lab similar to that in the article above, but with more lab details and images. Please look there for more details about _Spring Cloud Data Flow_.
+----
+$ cf service mydataflow
+----
+
+To attach the Data Flow shell run the following command:
+
+----
+$ cf dataflow-shell mydataflow
+Attaching shell to dataflow service mydataflow in org STLWorkshop / space instructor as cbusch@pivotal.io...
+Downloading https://repo.spring.io/libs-release/org/springframework/cloud/spring-cloud-dataflow-shell/1.3.0.RELEASE/spring-cloud-dataflow-shell-1.3.0.RELEASE.jar
+Launching dataflow shell JAR
+  ____                              ____ _                __
+ / ___| _ __  _ __(_)_ __   __ _   / ___| | ___  _   _  __| |
+ \___ \| '_ \| '__| | '_ \ / _` | | |   | |/ _ \| | | |/ _` |
+  ___) | |_) | |  | | | | | (_| | | |___| | (_) | |_| | (_| |
+ |____/| .__/|_|  |_|_| |_|\__, |  \____|_|\___/ \__,_|\__,_|
+  ____ |_|    _          __|___/                 __________
+ |  _ \  __ _| |_ __ _  |  ___| | _____      __  \ \ \ \ \ \
+ | | | |/ _` | __/ _` | | |_  | |/ _ \ \ /\ / /   \ \ \ \ \ \
+ | |_| | (_| | || (_| | |  _| | | (_) \ V  V /    / / / / / /
+ |____/ \__,_|\__\__,_| |_|   |_|\___/ \_/\_/    /_/_/_/_/_/
+
+1.3.0.RELEASE
+
+Welcome to the Spring Cloud Data Flow shell. For assistance hit TAB or type "help".
+dataflow:>
+----
+
+Now that the Data Flow shell is attached successfully, we will use the _Service Instance Logging_ plugin to troubleshoot data pipeline issues. This plugin will stream the logs of the Data Flow service instance’s backing application logs, including its companion application-logs of Skipper and Metrics-collector.
+
+In a second terminal window, run the following command to look at the most recent logs:
+
+----
+$ cf service-logs mydataflow --recent
+----
+
+Or better, watch the logs streaming in real-time without the `--recent` flag:
+
+----
+cf service-logs mydataflow
+----
+
+Now that we have a service instance successfully created, and the Cloud Foundry CLI plugins available in our environment, it is time to create our first data pipeline. We can take advantage of the Spring Cloud Stream application starters for SCDF by importing them into our Data Flow service instance. For this example, we’ll use a service instance created with the default data services. 
+
+In the terminal window running the SCDF shell, run the app import command:
+
+----
+dataflow:> app import http://bit.ly/Celsius-SR1-stream-applications-rabbit-maven
+Successfully registered 65 applications from [source.sftp, source.mqtt.metadata, sink.mqtt.metadata, source.file.metadata, processor.tcp-client, source.s3.metadata, source.jms, source.ftp, processor.transform.metadata, source.time, sink.mqtt, sink.s3.metadata, processor.scriptable-transform, sink.log, source.load-generator, processor.transform, source.syslog, sink.websocket.metadata, sink.task-launcher-local.metadata, source.loggregator.metadata, source.s3, source.load-generator.metadata, processor.pmml.metadata, source.loggregator, source.tcp.metadata, processor.httpclient.metadata, sink.file.metadata, source.triggertask, source.twitterstream, source.gemfire-cq.metadata, processor.aggregator.metadata, source.mongodb, source.time.metadata, source.gemfire-cq, sink.counter.metadata, source.http, sink.tcp.metadata, sink.pgcopy.metadata, source.rabbit, sink.task-launcher-yarn, source.jms.metadata, sink.gemfire.metadata, sink.cassandra.metadata, processor.tcp-client.metadata, processor.header-enricher, sink.throughput, sink.task-launcher-local, processor.python-http, sink.aggregate-counter.metadata, sink.mongodb, processor.twitter-sentiment, sink.log.metadata, processor.splitter, sink.hdfs-dataset, source.tcp, processor.python-jython.metadata, source.trigger, source.mongodb.metadata, processor.bridge, source.http.metadata, source.rabbit.metadata, sink.ftp, sink.jdbc, source.jdbc.metadata, source.mqtt, processor.pmml, sink.aggregate-counter, sink.rabbit.metadata, processor.python-jython, sink.router.metadata, sink.cassandra, processor.filter.metadata, source.tcp-client.metadata, processor.header-enricher.metadata, processor.groovy-transform, source.ftp.metadata, sink.router, sink.redis-pubsub, source.tcp-client, processor.httpclient, sink.file, sink.websocket, source.syslog.metadata, sink.s3, sink.counter, sink.rabbit, processor.filter, source.trigger.metadata, source.mail.metadata, sink.gpfdist.metadata, sink.pgcopy, processor.python-http.metadata, sink.jdbc.metadata, sink.gpfdist, sink.ftp.metadata, processor.splitter.metadata, sink.sftp, sink.field-value-counter, processor.groovy-filter.metadata, processor.twitter-sentiment.metadata, source.triggertask.metadata, sink.hdfs, processor.groovy-filter, sink.redis-pubsub.metadata, source.sftp.metadata, processor.bridge.metadata, sink.field-value-counter.metadata, processor.groovy-transform.metadata, processor.aggregator, sink.sftp.metadata, processor.tensorflow.metadata, sink.throughput.metadata, sink.hdfs-dataset.metadata, sink.tcp, source.mail, sink.task-launcher-cloudfoundry.metadata, source.gemfire.metadata, processor.tensorflow, source.jdbc, sink.task-launcher-yarn.metadata, sink.gemfire, source.gemfire, source.twitterstream.metadata, sink.hdfs.metadata, processor.tasklaunchrequest-transform, sink.task-launcher-cloudfoundry, source.file, sink.mongodb.metadata, processor.tasklaunchrequest-transform.metadata, processor.scriptable-transform.metadata]
+----
+
+If you want to see all of the applications that are available to use for developing data pipelines after the import, run the `app list` command in the SCDF shell.
+
+The next step is to create and deploy a stream. This simple example will take in POST data via HTTP and then split the data into words, which are then logged as output. In the SCDF shell, create the example stream definition using the following command, but replace the <YOUR INITIALS> to make the route unique to you:
+
+----
+dataflow:> stream create --name words-<YOUR INITIALS> --definition "http | splitter --expression=payload.split(' ') | log"
+----
+
+Once the stream is defined we can deploy it using the following command:
+
+----
+dataflow:> stream deploy words-<YOUR INITIALS> --properties "app.splitter.producer.partitionKeyExpression=payload”
+----
+
+After the stream is deployed successfully, you will see the following applications in the space where you created the Data Flow service instance. Give the apps a minute or two to start, then in the other terminal window, run:
+
+----
+$ cf apps
+Getting apps in org STLWorkshop / space instructor as cbusch@pivotal.io...
+OK
+
+name                    requested state   instances   memory   disk   urls
+words-ccb-http-v1       started           1/1         1G       1G     words-ccb-http-v1.cfapps.io
+words-ccb-log-v1        started           1/1         1G       1G     words-ccb-log-v1.cfapps.io
+words-ccb-splitter-v1   started           1/1         1G       1G     words-ccb-splitter-v1.cfapps.io
+----
+
+At last, we can test our stream. In the terminal not running the SCDF shell, run the following command to watch the `words` log output:
+
+----
+$ cf logs words-log-v1
+----
+
+Back at the SCDF shell in the other terminal, send a HTTP POST request using the Data Flow shell to the `http` source application URL with a phrase that will be parsed in the stream:
+
+----
+dataflow:> http post --target https://words-<YOUR INITIALS>-http-v1.example.io --data "This is a test"
+----
+
+In the words log terminal you should see the following output:
+
+----
+Retrieving logs for app words-ccb-log-v1 in org STLWorkshop / space instructor as cbusch@pivotal.io...
+
+2018-... [APP/PROC/WEB/0] OUT 2018-...  INFO 15 --- [r.words-ccb-0-1] words-ccb-log-v1    : This
+2018-... [APP/PROC/WEB/0] OUT 2018-...  INFO 15 --- [r.words-ccb-0-1] words-ccb-log-v1    : is
+2018-... [APP/PROC/WEB/0] OUT 2018-...  INFO 15 --- [r.words-ccb-0-1] words-ccb-log-v1    : a
+2018-... [APP/PROC/WEB/0] OUT 2018-...  INFO 15 --- [r.words-ccb-0-1] words-ccb-log-v1    : test
+----
+
+We’ve done it! We have created a stream that will take in text from an HTTP endpoint, parse it into its individual words, and log the parsed words as output. I'm sure you can imagine a set of enterprise scenarios such as taking database record change events and updating downstream systems based on those changes.
+
+The remove the data flow, run the following command which allows deletes the apps in cloud foundry:
+
+----
+dataflow:> stream destroy words-<YOUR INITIALS>
+Destroyed stream 'words-ccb'
+----
+
+Exit the SCDF shell by typing `exit` and hit the Return key. At the command prompt, check to see the apps were deleted:
+
+----
+$ cf apps
+Getting apps in org STLWorkshop / space instructor as cbusch@pivotal.io...
+OK
+
+No apps found
+----
+
+== Continued study
+
+After the lab, visit the link:http://docs.pivotal.io/scdf/index.html[Spring Cloud Data Flow for PCF] documentation. It includes a link:http://docs.pivotal.io/scdf/getting-started.html[Getting Started with Spring Cloud® Data Flow for PCF] lab similar to that in the article above, but with more lab details and images. Please look there for more details about _Spring Cloud Data Flow_.
 
 link:/README.md#course-materials[Course Materials home] | link:/session_07/lab_06/lab_06.adoc[Lab 6 - Using PCF Autoscaler]
