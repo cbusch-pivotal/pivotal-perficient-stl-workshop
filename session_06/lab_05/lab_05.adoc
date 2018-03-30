@@ -44,6 +44,9 @@ p-dataflow-relational     proxy       Proxies to the Spring Cloud Data Flow data
 ----
 
 == Lab continues in blog
+
+IMPORTANT: Check the status of `cf create-service` using `cf service <name of service>`.
+
 Next, for the lab, visit the blog link:https://content.pivotal.io/blog/building-flexible-data-pipelines-with-spring-cloud-data-flow-for-pcf[Building Flexible Data Pipelines with Spring Cloud Data Flow for PCF] to create a service and use it in an example flow. You may read the top section of the blog or proceed directly to the section *"Getting Started: Creating Your First Data Pipeline"*.
 
 After the lab, visit the link:http://docs.pivotal.io/scdf/index.html[Spring Cloud Data Flow for PCF] documentation. It does includes a link:http://docs.pivotal.io/scdf/getting-started.html[Getting Started with Spring Cloud® Data Flow for PCF] lab similar to that in the article above, but with more lab details and images. Please look there for more details about _Spring Cloud Data Flow_.
