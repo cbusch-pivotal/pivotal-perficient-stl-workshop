@@ -4,13 +4,14 @@ image::/../../common/images/scdf.png[Spring Cloud Data Flow for PCF,400,200]
 
 This lab is based off the blog link:https://content.pivotal.io/blog/building-flexible-data-pipelines-with-spring-cloud-data-flow-for-pcf[Building Flexible Data Pipelines with Spring Cloud Data Flow for PCF] written by Chris Sterling. This blog will be the basis for the lab. Don't bypass installing the Cloud Foundry CF CLI plugin, as below.
 
-== FIRST, install the Cloud Foundry CLI Plugin
-The Spring Cloud Data Flow for PCF Cloud Foundry CLI plugin is available through the Cloud Foundry Community Plugins repository.
+== FIRST, install the Cloud Foundry CLI Plugins
+The _Spring Cloud Data Flow for PCF Cloud Foundry CLI_ and _Service Instance Logging_ plugins are important for the labs. You can install them now.
 
 To install the plugin, run the following command:
 
 ----
 $ cf install-plugin -r CF-Community "spring-cloud-dataflow-for-pcf"
+$ cf install-plugin -r CF-Community "Service Instance Logging"
 ----
 
 == Target PWS and view the PCF Marketplace
