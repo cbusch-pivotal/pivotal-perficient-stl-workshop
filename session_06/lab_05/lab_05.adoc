@@ -119,7 +119,7 @@ Once the stream is defined we can deploy it using the following command:
 dataflow:> stream deploy words-<YOUR INITIALS> --properties "app.splitter.producer.partitionKeyExpression=payload”
 ----
 
-After the stream is deployed successfully, you will see the following applications in the space where you created the Data Flow service instance. Give the apps a minute or two to start, then in the other terminal window, run:
+After the stream is deployed successfully, you will see the following applications in the space where you created the Data Flow service instance. Give the apps a minute or two to start, then in a new terminal window, run:
 
 ----
 $ cf apps
