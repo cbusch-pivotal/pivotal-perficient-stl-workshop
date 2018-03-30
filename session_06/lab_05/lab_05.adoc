@@ -174,6 +174,30 @@ OK
 No apps found
 ----
 
+Finally, delete all services created for dataflow. Run the following command to determine the services to delete:
+
+----
+$ cf services
+Getting services in org STLWorkshop / space instructor as cbusch@pivotal.io...
+
+name                                              service                 plan       bound apps   last operation
+analytics-f070e5bb-8b46-4086-87de-ffdc21d561b8    p-dataflow-analytics    proxy                   create succeeded
+messaging-f070e5bb-8b46-4086-87de-ffdc21d561b8    p-dataflow-messaging    proxy                   create succeeded
+mydataflow                                        p-dataflow              standard                create succeeded
+relational-f070e5bb-8b46-4086-87de-ffdc21d561b8   p-dataflow-relational   proxy                   create succeeded
+----
+
+To delete each service, use `cf delete-service -f <NAME OF SERVICE>`. The `-f` forces the deletion without asking you to confirm.
+
+----
+$ cf delete-service -f analytics-f070e5bb-8b46-4086-87de-ffdc21d561b8
+$ cf delete-service -f messaging-f070e5bb-8b46-4086-87de-ffdc21d561b8
+$ cf delete-service -f relational-f070e5bb-8b46-4086-87de-ffdc21d561b8
+$ cf delete-service -f mydataflow
+----
+
+Thanks for cleaning up!
+
 == Continued study
 
 After the lab, visit the link:http://docs.pivotal.io/scdf/index.html[Spring Cloud Data Flow for PCF] documentation. It includes a link:http://docs.pivotal.io/scdf/getting-started.html[Getting Started with Spring Cloud® Data Flow for PCF] lab similar to that in the article above, but with more lab details and images. Please look there for more details about _Spring Cloud Data Flow_.
