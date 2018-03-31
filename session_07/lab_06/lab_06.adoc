@@ -54,7 +54,6 @@ mysql                                      1.3.5     mysql                      
 mysql                                      1.3.5     mysqldump                   Dump a MySQL database
 pcfdev                                     0.27.0    dev, pcfdev                 Control PCF Dev VMs running on your workstation
 service-instance-logging                   1.0.1     service-logs, sil           Tail or show recent logs for a service instance
-spring-cloud-dataflow-for-pcf-cli-plugin   1.0.0     dataflow-shell, dfsh        Open a dataflow shell to a Spring Cloud Dataflow for PCF dataflow server
 top                                        0.8.8     top                         Displays top stats - by Kurt Kellner
 update-cli                                 0.1.1     update-cli                  Update cf cli to the latest version
 
@@ -101,13 +100,15 @@ $ cf help | grep autoscaling
 
 == Enable autoscaling for an app
 
-To turn on autoscaling from the command line, just as if the *Autoscaling* switch was flipped in the _Apps Manager UI_ or an autoscaler service was created and bind to the app, simply run the following command:
+To enable autoscaling, an instance of the _App Autoscaler_ must be created and bound to the app. At that point the CLI can be use to enable or disable autoscaling. Note that one, and only one, _App Autoscaler_ service can exist within a space.
 
-----
-$ cf enable-autoscaling attendees
-Enabled autoscaling for app attendees for org STLWorkshop / space instructor as cbusch@pivotal.io
-OK
-----
+To create an instance of the _App Autoscaler_ and bind it to the `attendees` app, open link:https://run.pivotal.io[PWS] in a browser, go to your assigned org and space where the `attendees` is running, and flip the *Autoscaling* switch.
+
+image::/../../common/images/AppsMan-autoscaler.png[]
+
+This creates the service and binds it to the app. In 30 seconds or so, the app will autoscale to two instances due to the default being 2 min and 3 max.
+
+At this point, autoscaling is enabled. To disable autoscaling without unbinding or deleting the autoscaler service, use the `cf disable-autoscaling attendees` CLI. To re-enable autoscaling, simply run `cf enable-autoscaling attendees`.
 
 == Update autoscaling limits
 
@@ -118,6 +119,8 @@ OK
 ----
 
 == Create autoscaling rules
+
+
 
 ----
 $ cf create-autoscaling-rule attendees http_throughput 24 25
