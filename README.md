@@ -98,7 +98,7 @@ PowerPoint template for slides (Dave to talk with Marketing team)
   - [Lab 4 - Introspection, Monitoring, and Metrics using Spring Boot Actuator](session_05/lab_04/lab_04.adoc) 
 
 #### _Session 6: Spring Cloud Data Flow on PCF_ [(Slides)](session_06/Session_06-Spring-Cloud-Data-Flow.pptx) (Chris Busch)
-  - [Lab 5 - Leveraging Spring Cloud Data Flow](session_06/lab_05/lab_05.adoc) (create datasource, load data, create flow to transform and push to a destination)
+  - [Lab 5 - Leveraging Spring Cloud Data Flow](session_06/lab_05/lab_05.adoc)
 
 #### _Session 7: Scaling Apps with the new Autoscaler CLI with Lab_ [(Slides)](session_07/Session_07-Scaling-Apps-Autoscaler-CLI.pptx)  (DJ Kaiping and Chris Busch)
   - [Lab 6 - Using PCF Autoscaler](session_07/lab_06/lab_06.adoc)
