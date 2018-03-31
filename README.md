@@ -107,14 +107,16 @@ PowerPoint template for slides (Dave to talk with Marketing team)
 
 #### _Wrap-up, Q&A, Course evaluation_ [(Slides)](session_wrapup/Session_Wrap-up.pdf) [(Evaluation)]() (Daniel Hawthorne)
 
-## Hosts and Instructors
+## The Team
+
+### Instructors
 - Vishal Sharma, Perficient, Vishal.Sharma@perficient.com
 - Sharath Sahadevan, Pivotal Platform Achitect, ssahadevan@pivotal.io
 - Chris Busch, Pivotal Platform Architect, cbusch@pivotal.io
 - DJ Kaiping, Perficient, dj.kaiping@perficient.com
-- Steve Womack, Pivotal Platform Architect, swomack@pivotal.io
-- Jenny McLaughlin, Pivotal Platform Architect, jmclaughlin@pivotal.io
 - Cory Jett, Pivotal Platform Architect, cjett@pivotal.io
+
+### Hosts
 - Dave Stockmann, Perficient Principle Architect, dave.stockmann@perficient.com
 - Daniel Hawthorne, Pivotal Account Executive, dhawthorne@pivotal.io
 ...
