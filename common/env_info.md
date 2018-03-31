@@ -15,12 +15,12 @@ Use the following information to connect (login) to specific environments as dir
 - Password: From your account
 - Use [PWS Marketplace services](#pws-marketplace-services-and-plans) below
 
-### Pivotal Elastic Zone (PEZ)
-- Website: https://apps.run.haas-xx.pez.pivotal.io
-- Endpoint: api.run.haas-xx.pez.pivotal.io
-- Username: Assigned by instructor --> `student1` through `student25`
+### PCF on Google Cloud Platform (GCP)
+- Website: https://apps.sys.pcf.pcfapps.net
+- Endpoint: api.sys.pcf.pcfapps.net
+- Username: Assigned by instructor --> `student1` through `student30`
 - Password: Assigned by instructor
-- Use [PEZ Marketplace services](#pez-marketplace-services-and-plans) below
+- Use [PCF Marketplace services](#gcp-marketplace-services-and-plans) below
 
 ## Logging into an Environment
 Using the above information, your step to login are as follows below. When logging in, PCF will ask you for your password and which PCF Space, i.e. development, test, or production, in which you would like to work. Spaces can always be changed later using `cf target -s test`, for instance.
@@ -75,16 +75,12 @@ p-mysql | 100mb, 1gb, 20gb | MySQL databases on demand
 p-service-registry | standard | Service Registry for Spring Cloud Applications
 rediscloud | 100mb*, 250mb*, 500mb*, 1gb*, 2-5gb*, 5gb*, 10gb*, 50gb*, 30mb | Enterprise-Class Redis for Developers
 
-### PEZ Marketplace Services and Plans
+### GCP Marketplace Services and Plans
 Service Name | Plans | Description
 ------------ | ----- | -----------
-apigee-edge | org | Apigee Edge API Platform
 app-autoscaler | bronze, gold | Scales bound applications in response to load (beta)
-p-circuit-breaker-dashboard | standard | Circuit Breaker Dashboard for Spring Cloud Applications
-p-config-server | standard | Config Server for Spring Cloud Applications
 p-mysql | 100mb-dev | MySQL service for application development and testing
 p-rabbitmq | standard | RabbitMQ is a robust and scalable high-performance multi-protocol messaging broker.
 p-redis | shared-vm, dedicated-vm | Redis service to provide a key-value store
-p-service-registry | standard | Service Registry for Spring Cloud Applications
 
 [Course Materials home](/README.md#course-materials)
