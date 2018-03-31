@@ -1,8 +1,24 @@
 = Lab 6 - Using PCF Autoscaler CLI
 
+== App Autoscaler Overview
+App Autoscaler is a marketplace service that helps control the cost of running apps while maintaining app performance.
 The App Autoscaler automatically scales Cloud Foundry apps in response to demand. The App Autoscaler CLI lets you control the App Autoscaler from your local command line by extending the Cloud Foundry command-line interface (cf CLI).
 
-The link:https://docs.pivotal.io/pivotalcf/2-1/appsman-services/autoscaler/using-autoscaler-cli.html[Using the App Autoscaler CLI] documentation is the location for detailed information on the PCF 2.1 Autoscaler CLI.
+To balance app performance and cost, Space Developers can use App Autoscaler to do the following:
+
+* Configure rules that adjust instance counts based on metrics thresholds such as CPU Usage
+* Modify the maximum and minimum number of instances for an app, either manually or following a schedule
+
+link:https://docs.pivotal.io/pivotalcf/2-1/appsman-services/autoscaler/using-autoscaler-cli.html[Using the App Autoscaler CLI] documentation is the location for detailed information on the PCF 2.1 Autoscaler CLI.
+
+=== Configure Autoscaling for an App
+App Autoscaler keeps instance counts within an allowable range defined by minimum and maximum values, or instance limits.
+
+Follow the procedures in the sections below to set any of the following:
+
+* Instance Limits
+* Scaling Rules
+* Scheduled Limit Changes
 
 == Install the plug
 
@@ -112,6 +128,14 @@ At this point, autoscaling is enabled. To disable autoscaling without unbinding 
 
 == Update autoscaling limits
 
+Limits define the minimum and maximum application instances (AI's) which will run according to the rules provided. If no rules are provided, then the minimum number of AI's will be achieved.
+
+Pivotal Cloud Foundry (PCF) users with the _Space Developer_ role can set up and configure the _App Autoscaler_ service in the _Apps Manager UI_ or the `cf` CLI to automatically scale apps based on link:https://docs.pivotal.io/pivotalcf/2-1/appsman-services/autoscaler/using-autoscaler.html#metric[rules]. 
+
+*NOTE*: Space Managers, Space Auditors, and all Org roles do not have permission to use _App Autoscaler_.
+
+Use the following `cf` CLI _Auto Scaling_ command to change the minimum and maximum settings.
+
 ----
 $ cf update-autoscaling-limits attendees 1 8
 Updated autoscaling instance limits for app attendees for org STLWorkshop / space instructor as cbusch@pivotal.io
@@ -120,11 +144,22 @@ OK
 
 == Create autoscaling rules
 
+To keep your apps available without wasting resources, _App Autoscaler_ increments or decrements instance counts based on how current metrics compare with configurable High and Low thresholds.
 
+**How App Autoscaler Determines When to Scale**
+
+App Autoscaler scales apps as follows:
+
+* Increment by one instance when any metric exceeds the High threshold specified
+* Decrement by one instance only when all metrics fall below the Low threshold specified
+
+The following command creates an `http_throughput` rule which watches the "Total HTTP Requests" per second (divided by total app instances).
 
 ----
 $ cf create-autoscaling-rule attendees http_throughput 24 25
 ----
+
+This rule looks for the average CPU percentage for all instances of the app.
 
 ----
 $ cf create-autoscaling-rule attendees cpu 89 90
@@ -132,7 +167,10 @@ $ cf create-autoscaling-rule attendees cpu 89 90
 
 == Using an autoscaling manifest
 
-autoscaler_manifest.yml
+A manifest YAML file can be created to capture auto scaling limits and rules to make it easy to apply in CI/CD pipelines during normal deployments.
+
+Examples `autoscaler_manifest.yml`:
+
 ----
 instance_limits:
   min: 1
@@ -151,49 +189,57 @@ scheduled_limit_changes:
       max: 20
 ----
 
+Applying limits and rules with a manifest file:
 
 ----
 $ cf configure-autoscaling attendees autoscaler_manifest.yml
 ----
 
 == Viewing the rules
+At any time, you can use the following command to see what auto scaling rules have been applied to an application.
 
 ----
 $ cf autoscaling-rules attendees
 ----
 
 == Deleting rules
+Using the output of the `cf autoscaling-rule <app>` viewing, copy the _Rule Guid_ to use in the delete a rule, as demonstrated below:
 
 ----
 $ cf delete-autoscaling-rule attendees <RULE GUID>
 ----
 
-Show that it's deleted
+View the app rules to verify that the rule has been deleted.
 
 ----
 $ cf autoscaling-rules attendees
 ----
 
 == Autoscaling events
+App Autoscaler logs all autoscaling events including scaling decisions and binding auto-disable events.
+
+To view all autoscaling events in the past 24 hours, click the view more icon in the Event History section of the App Autoscaler UI.
 
 ----
 $ cf autoscaling-events attendees
 ----
 
-Make a new rule to make events fire
+Creat new rules to make events fire, such as:
 
 ----
 $ cf create-autoscaling-rule attendees http_throughput 10 20
 ----
 
-Show the events occuring
+Show the events occuring. 
+
+*Note* that the _App Autoscaler_ is set for the entire PCF installation and usually is configured to occur every 30 seconds, or so, but could be as much as 3 minutes.
 
 ----
 $ cf autoscaling-events attendees
 ----
 
-
-Remove autoscaling from the app using the following command:
+== Stop autoscaling for an app
+To disable autoscaling for an app, use the following command. This does not delete the _App Autoscaler_ service instance or unbind the service from your app. It simply disables its use. At any time the `cf enable-autoscaling <app>` can be used to re-enable auto scaling.
 
 ----
 $ cf disable-autoscaling attendees
