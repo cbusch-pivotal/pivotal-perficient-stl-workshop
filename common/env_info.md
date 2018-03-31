@@ -42,16 +42,16 @@ OK
 Targeted org student1-org
 
 Select a space (or press enter to skip):
-1. development
+1. dev
 2. test
-3. production
+3. prod
 
 Space> 1
 Targeted space development
 
 API endpoint:   https://api.run.pivotal.io (API version: 2.54.0)
-User:           student1
-Org:            student1-org
+User:           student01
+Org:            STLWorkshop
 Space:          development
 ```
 
