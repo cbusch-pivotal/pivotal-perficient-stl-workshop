@@ -25,9 +25,6 @@ $ cf unbind-service attendees attendees-db
 $ cf restage attendees
 ----
 
-image::/../../common/images/Attendees.png[]
-
-
 == Scale the Application Up
 
 . Now let's increase the number of running application instances to 3:
