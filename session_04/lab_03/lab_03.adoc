@@ -23,6 +23,7 @@ Since the application we deployed in ../lab_02/lab_02.adoc[Lab 2] uses the free 
 ----
 $ cf unbind-service attendees attendees-db
 $ cf restage attendees
+----
 
 image::/../../common/images/Attendees.png[]
 
