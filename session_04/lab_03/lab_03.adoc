@@ -89,7 +89,7 @@ buildpack:         client-certificate-mapper=1.5.0_RELEASE container-security-pr
 Refresh several times.
 You should observe the instance index changing as you do so:
 
-image::../../Common/images/Attendees_Scaled.png[]
+image::/../../common/images/Attendees_Scaled.png[]
 
 The aforementioned http://docs.cloudfoundry.org/concepts/architecture/router.html[(Go)Router] is applying a random routing algorithm to all of the application instances assigned to this route.
 As an instance reaches the `running` state, its http://docs.cloudfoundry.org/concepts/architecture/execution-agent.html[DEA] registers that instance in the routing table assigned to its route by sending a message to Cloud Foundry's message bus.
@@ -128,6 +128,6 @@ buildpack:         client-certificate-mapper=1.5.0_RELEASE container-security-pr
 As you can see, we're back down to only one instance running, and it is in fact the original index 0 that we started with.
 
 . Confirm that by again revisiting the route in the browser and checking the instance index and request counter:
-image::../../Common/images/Attendees.png[]
+image::/../../common/images/Attendees.png[]
 
 link:/README.md#course-materials[Course Materials home]
