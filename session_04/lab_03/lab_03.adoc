@@ -128,6 +128,7 @@ buildpack:         client-certificate-mapper=1.5.0_RELEASE container-security-pr
 As you can see, we're back down to only one instance running, and it is in fact the original index 0 that we started with.
 
 . Confirm that by again revisiting the route in the browser and checking the instance index and request counter:
+
 image::/../../common/images/Attendees.png[]
 
 link:/README.md#course-materials[Course Materials home]
