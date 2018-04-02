@@ -32,27 +32,28 @@ $ cf login -a <endpoint> -u <user> --skip-ssl-validation
 For PWS, use your email address from when you created your account.
 
 ```
-$ cf login -a api.run.pivotal.io -u myname@email.com --skip-ssl-validation
+$ cf login -a api.run.pivotal.io -u <myname@email.com> --skip-ssl-validation
 API endpoint: api.run.pivotal.io
 
 Password>
 Authenticating...
 OK
 
-Targeted org student1-org
+Targeted org STLWorkshop
 
 Select a space (or press enter to skip):
-1. dev
-2. test
-3. prod
+1. <cbusch>
+2. <ssahadevan>
+3. <cjett>
+...
 
 Space> 1
 Targeted space development
 
 API endpoint:   https://api.run.pivotal.io (API version: 2.54.0)
-User:           student01
+User:           cbusch@pivotal.io
 Org:            STLWorkshop
-Space:          development
+Space:          cbusch
 ```
 
 
