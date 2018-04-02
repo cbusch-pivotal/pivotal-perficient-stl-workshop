@@ -17,7 +17,7 @@ _This workshop is intended for: Managers, Architects, Developers, Operators and 
 
 > __NOTE__: Space is limited. Please register for the workshop [here](http://connect.pivotal.io/PCF-Spring-Workshop-Pivotal-Perficient.html) today.
 
-## Other Events of Interest
+## Events of Interest
 - [SpringOne Tour by Pivotal](https://springonetour.io/), [St. Louis May 30-31 at T-Rex](https://springonetour.io/2018/st-louis). Cloud-Native Java From the Source: The SpringOne Tour brings the best Cloud-Native Java content from our flagship conference directly to you. In 2 days, you’ll learn about both traditional monolithic and modern, Cloud-Native Java from the source. Experience valuable facetime with expert Pivotal speakers in both traditional presentation and informal open space discussions about modern Application Development, DevOps, CI/CD, Cloud and more.
 - Stay informed for the [2018 SpringOne Platform by Pivotal](https://springoneplatform.io/) to be held in Sept. 24-27 in Washington, D.C.
 - ...
