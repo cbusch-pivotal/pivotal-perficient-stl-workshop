@@ -65,11 +65,12 @@ There aren't any endpoints defined in this application, but there's enough to la
 ----
 $ ./gradlew clean build && java -jar build/libs/{project_id}-0.1.0.jar
 ----
+
 or
+
 ----
-
-$ mvn package
-
+$ mvnw clean 
+$ mvnw package
 -----
 
 To Execute:
@@ -174,6 +175,7 @@ $ ls -al manifest.yml
 Edit manifest.yml
 
 link::pivotal-perficient-stl-workshop/session_05/lab_04/gs-actuator-service-master/initial/manifest.yml
+
 
 Update the name to something unique
 
