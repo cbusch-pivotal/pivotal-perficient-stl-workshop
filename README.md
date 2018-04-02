@@ -119,4 +119,5 @@ PowerPoint template for slides (Dave to talk with Marketing team)
 ### Hosts
 - Dave Stockmann, Perficient Principle Architect, dave.stockmann@perficient.com
 - Daniel Hawthorne, Pivotal Account Executive, dhawthorne@pivotal.io
+- Jim Lyon, Pivotal Account Executive, jlyon@pivotal.io
 ...
