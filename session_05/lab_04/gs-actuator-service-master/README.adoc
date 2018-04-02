@@ -183,6 +183,17 @@ $ cd $HOME/session_05/lab_04/gs-actuator-service-master/initial
 
 $ cf push
 
+$ cf apps
+
+Note the route for your application: 
+
+Replace <student9> with your uniqiue entry from the manifest file
+
+Browse to http://hello-world-student9.cfapps.io/actuator 
+http://hello-world-student9.cfapps.io/actuator/health
+
+https://hello-world-student9.cfapps.io/hello-world
+
 == Summary
 Congratulations! You have just developed a simple RESTful service using Spring. You added some useful built-in services thanks to Spring Boot Actuator.
 
