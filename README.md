@@ -105,7 +105,7 @@ PowerPoint template for slides (Dave to talk with Marketing team)
 
 #### _Session 8: PCF Metrics and PCF Healthwatch Overview_ [(Slides)](session_08/Session_08-PCF-Metrics-Healthwatch.pptx)
 
-#### _Wrap-up, Q&A, Course evaluation_ [(Slides)](session_wrapup/Session_Wrap-up.pdf)
+#### _Wrap-up, Q&A, Course evaluation_ [(Slides)](session_wrapup/Session_Wrap-Up.pptx)
 
 ## The Team
 
