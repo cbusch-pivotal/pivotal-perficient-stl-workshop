@@ -65,10 +65,17 @@ There aren't any endpoints defined in this application, but there's enough to la
 ----
 $ ./gradlew clean build && java -jar build/libs/{project_id}-0.1.0.jar
 ----
-or mvn package
+or
+----
+
+$ mvn package
+
+-----
 
 To Execute:
-java -jar gs-actuator-service-0.1.0.jar
+----
+$java -jar gs-actuator-service-0.1.0.jar
+----
 
 You hardly written any code yet, so what's happening? Wait for the server to start and go to another terminal to try it out:
 
@@ -159,7 +166,22 @@ $ curl localhost:8080/hello-world
 {"id":1,"content":"Hello, Stranger!"}
 ....
 
+=== To deploy to PCF
 
+$ cd $HOME/session_05/lab_04/gs-actuator-service-master/initial
+$ ls -al manifest.yml
+
+Edit manifest.yml
+
+link::pivotal-perficient-stl-workshop/session_05/lab_04/gs-actuator-service-master/initial/manifest.yml
+
+Update the name to something unique
+
+name: hello-world-{student9}
+
+$ cd $HOME/session_05/lab_04/gs-actuator-service-master/initial
+
+$ cf push
 
 == Summary
 Congratulations! You have just developed a simple RESTful service using Spring. You added some useful built-in services thanks to Spring Boot Actuator.
