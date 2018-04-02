@@ -1,7 +1,0 @@
-
-= Lab4 - See Instruction in gs-actuator-service-master
----
-include::pivotal-perficient-stl-workshop/session_05/lab_04/gs-actuator-service-master/README.adoc
----
-See file - pivotal-perficient-stl-workshop/session_05/lab_04/gs-actuator-service-master/README.adoc
-
