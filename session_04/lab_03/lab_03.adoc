@@ -131,4 +131,4 @@ As you can see, we're back down to only one instance running, and it is in fact 
 
 image::/../../common/images/Attendees.png[]
 
-link:/README.md#course-materials[Course Materials home]
+link:/README.md#course-materials[Course Materials home] | link:/session_05/lab_04/lab_04.adoc[Lab 4 - Spring Boot Actuator Lab]
