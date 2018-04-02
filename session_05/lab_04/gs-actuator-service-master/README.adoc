@@ -17,14 +17,17 @@ This guide will take you through creating a "hello world" link:/understanding/RE
 
 [source,sh]
 ----
-$ curl http://localhost:9000/hello-world
+$ curl http://localhost:8080/hello-world
 ----
 
 It responds with the following link:/understanding/JSON[JSON]:
 
 [source,json]
 ----
-{"id":1,"content":"Hello, World!"}
+{
+"id": 1,
+"content": "Hello, Stranger!"
+}
 ----
 
 There are also many features added to your application out-of-the-box for managing the service in a production (or other) environment.  The business functionality of the service you build is the same as in {gs-rest-service}[Building a RESTful Web Service]. You don't need to use that guide to take advantage of this one, although it might be interesting to compare the results.
@@ -48,7 +51,7 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 == Run the empty service
 For starters, here's an empty Spring MVC application.
 
-`src/main/java/hello/HelloWorldApplication.java`
+session_05/lab_04/gs-actuator-service-master/initial/src/main/java/hello/HelloWorldApplication.java`
 [source,java]
 ----
 include::initial/src/main/java/hello/HelloWorldApplication.java[]
@@ -62,6 +65,10 @@ There aren't any endpoints defined in this application, but there's enough to la
 ----
 $ ./gradlew clean build && java -jar build/libs/{project_id}-0.1.0.jar
 ----
+or mvn package
+
+To Execute:
+java -jar gs-actuator-service-0.1.0.jar
 
 You hardly written any code yet, so what's happening? Wait for the server to start and go to another terminal to try it out:
 
@@ -90,8 +97,8 @@ You want to handle GET requests for `/hello-world`, optionally with a name query
 [source,json]
 ----
 {
-    "id": 1,
-    "content": "Hello, World!"
+"id": 1,
+"content": "Hello, Stranger!"
 }
 ----
 
@@ -152,50 +159,7 @@ $ curl localhost:8080/hello-world
 {"id":1,"content":"Hello, Stranger!"}
 ....
 
-== Switch to a different server port
 
-Spring Boot Actuator defaults to run on port 8080. By adding an `application.properties` file, you can override that setting.
-
-`src/main/resources/application.properties`
-[source,properties]
-----
-include::complete/src/main/resources/application.properties[]
-----
-
-Run the server again:
-
-[subs="attributes"]
-....
-$ ./gradlew clean build && java -jar build/libs/{project_id}-0.1.0.jar
-
-... service comes up on port 9000 ...
-....
-
-Test it:
-....
-$ curl localhost:8080/hello-world
-curl: (52) Empty reply from server
-$ curl localhost:9000/hello-world
-{"id":1,"content":"Hello, Stranger!"}
-$ curl localhost:9001/actuator/health
-{"status":"UP"}
-....
-
-== Test your application
-
-In order to check if your application is functional you should write unit / integration tests of your application.
-Below you can find an example of such a test that checks:
-
-- if your controller is responsive
-- if your management endpoint is responsive
-
-As you can see for tests we're starting the application on a random port.
-
-`src/test/java/hello/HelloWorldApplicationTests.java`
-[source,java]
-----
-include::complete/src/test/java/hello/HelloWorldApplicationTests.java[]
-----
 
 == Summary
 Congratulations! You have just developed a simple RESTful service using Spring. You added some useful built-in services thanks to Spring Boot Actuator.
