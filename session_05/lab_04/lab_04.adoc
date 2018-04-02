@@ -1,4 +1,4 @@
-= Spring Boot Lab
+= Spring Boot Actuator Lab
 
 http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready[Spring Boot Actuator] is a sub-project of Spring Boot. It adds several production grade services to your application with little effort on your part. In this guide, you'll build an application and then see how to add these services.
 
@@ -301,3 +301,5 @@ The following guides may also be helpful:
 
 * https://spring.io/guides/gs/spring-boot/[Building an Application with Spring Boot]
 * https://spring.io/guides/gs/serving-web-content/[Serving Web Content with Spring MVC]
+
+link:/README.md#course-materials[Course Materials home] | link:/session_06/lab_05/lab_05.adoc[Lab 5 - Leveraging Spring Cloud Data Flow]
