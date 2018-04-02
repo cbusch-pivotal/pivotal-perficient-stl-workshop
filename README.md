@@ -23,7 +23,7 @@ _This workshop is intended for: Managers, Architects, Developers, Operators and 
 - ...
 
 
-## Draft Agenda
+## Agenda
 
 Time | Session
 ---- | -------
