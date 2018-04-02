@@ -31,10 +31,10 @@ $ cd $COURSE_HOME/session_04/attendees
 . Using the Maven Wrapper, build and package the application:
 +
 ----
-$ ./mvnw -Pws -DskipTests=true clean install
+$ ./mvnw -Pws -DskipTests=true clean package
 ----
 +
-The Gradle Wrapper will automatically download the appropriate version of Gradle for this project along with all of _Attendees_'s dependencies. This may take a few moments.
+The build will automatically download the appropriate dependencies for the _Attendees_'s app. This may take a few moments.
 
 
 . Push the application!
@@ -122,7 +122,7 @@ You can get the same output at any time by typing `cf app attendees`.
 +
 In the example `cf push` above, the `urls:` section of the application health reports `attendees-hippest-shaman.cfapps.io`, so http://attendees-hippest-shaman.cfapps.io would have been used to examine this example deployed application. But use the url from your application deployment health report.
 +
-image::/../../common/images/Attendees_NS.png[]
+image::/../../common/images/Attendees.png[]
 +
 Be sure to click on the ``information icon'' in the top right-hand corner of the UI.
 This gives you important information about the state of the currently running _Attendees_ instance, including what Spring Profiles are turned on and what Cloud Foundry services are bound.

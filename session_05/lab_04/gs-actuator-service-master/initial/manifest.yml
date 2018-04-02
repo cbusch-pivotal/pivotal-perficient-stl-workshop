@@ -1,0 +1,7 @@
+---
+applications:
+- name: hello-world-student9
+  memory: 1G 
+  instances: 1
+  #host: pcfdemo-${random-word}
+  path: ./target/gs-actuator-service-0.1.0.jar

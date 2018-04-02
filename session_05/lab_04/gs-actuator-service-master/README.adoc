@@ -1,0 +1,209 @@
+---
+tags: [spring-boot]
+projects: [spring-boot]
+---
+:toc:
+:gs-rest-service: link:/guides/gs/rest-service
+:spring_version: current
+:icons: font
+:source-highlighter: prettify
+:project_id: gs-actuator-service
+
+http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready[Spring Boot Actuator] is a sub-project of Spring Boot. It adds several production grade services to your application with little effort on your part. In this guide, you'll build an application and then see how to add these services.
+
+== What you'll build
+
+This guide will take you through creating a "hello world" link:/understanding/REST[RESTful web service] with Spring Boot Actuator. You'll build a service that accepts an HTTP GET request:
+
+[source,sh]
+----
+$ curl http://localhost:8080/hello-world
+----
+
+It responds with the following link:/understanding/JSON[JSON]:
+
+[source,json]
+----
+{
+"id": 1,
+"content": "Hello, Stranger!"
+}
+----
+
+There are also many features added to your application out-of-the-box for managing the service in a production (or other) environment.  The business functionality of the service you build is the same as in {gs-rest-service}[Building a RESTful Web Service]. You don't need to use that guide to take advantage of this one, although it might be interesting to compare the results.
+
+=== What you'll need
+
+:java_version: 1.8
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc[]
+
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc[]
+
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-gradle.adoc[]
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-maven.adoc[]
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-sts.adoc[]
+
+
+== Run the empty service
+For starters, here's an empty Spring MVC application.
+
+session_05/lab_04/gs-actuator-service-master/initial/src/main/java/hello/HelloWorldApplication.java`
+[source,java]
+----
+include::initial/src/main/java/hello/HelloWorldApplication.java[]
+----
+
+The `@SpringBootApplication` annotation provides a load of defaults (like the embedded servlet container) depending on the contents of your classpath, and other things. It also turns on Spring MVC's @EnableWebMvc annotation that activates web endpoints.
+
+There aren't any endpoints defined in this application, but there's enough to launch things and see some of Actuator's features.  The `SpringApplication.run()` command knows how to launch the web application. All you need to do is run this command.
+
+[subs="attributes"]
+----
+$ ./gradlew clean build && java -jar build/libs/{project_id}-0.1.0.jar
+----
+
+or
+
+----
+$ mvnw clean 
+$ mvnw package
+-----
+
+To Execute:
+----
+$java -jar gs-actuator-service-0.1.0.jar
+----
+
+You hardly written any code yet, so what's happening? Wait for the server to start and go to another terminal to try it out:
+
+....
+$ curl localhost:8080
+{"timestamp":1384788106983,"error":"Not Found","status":404,"message":""}
+....
+
+So the server is running, but you haven't defined any business endpoints yet. Instead of a default container-generated HTML error response, you see a generic JSON response from the Actuator `/error` endpoint.  You can see in the console logs from the server startup which endpoints are provided out of the box.  Try a few out, for example
+
+....
+$ curl localhost:8080/actuator/health
+{"status":"UP"}
+....
+
+You're "UP", so that's good.
+
+Check out Spring Boot's https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-actuator[Actuator Project] for more details.
+
+[[initial]]
+== Create a representation class
+First, give some thought to what your API will look like.
+
+You want to handle GET requests for `/hello-world`, optionally with a name query parameter. In response to such a request, you will send back JSON, representing a greeting, that looks something like this:
+
+[source,json]
+----
+{
+"id": 1,
+"content": "Hello, Stranger!"
+}
+----
+
+The `id` field is a unique identifier for the greeting, and `content` is the textual representation of the greeting.
+
+To model the greeting representation, create a representation class:
+
+`src/main/java/hello/Greeting.java`
+[source,java]
+----
+include::complete/src/main/java/hello/Greeting.java[]
+----
+
+Now that you'll create the endpoint controller that will serve the representation class.
+
+== Create a resource controller
+In Spring, REST endpoints are just Spring MVC controllers. The following Spring MVC controller handles a GET request for /hello-world and returns the `Greeting` resource:
+
+`src/main/java/hello/HelloWorldController.java`
+[source,java]
+----
+include::complete/src/main/java/hello/HelloWorldController.java[]
+----
+
+The key difference between a human-facing controller and a REST endpoint controller is in how the response is created. Rather than rely on a view (such as JSP) to render model data in HTML, an endpoint controller simply returns the data to be written directly to the body of the response.
+
+The http://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/web/bind/annotation/ResponseBody.html[`@ResponseBody`] annotation tells Spring MVC not to render a model into a view, but rather to write the returned object into the response body. It does this by using one of Spring's message converters. Because Jackson 2 is in the classpath, this means that http://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.html[`MappingJackson2HttpMessageConverter`] will handle the conversion of Greeting to JSON if the request's `Accept` header specifies that JSON should be returned.
+
+NOTE: How do you know Jackson 2 is on the classpath? Either run ` mvn dependency:tree` or `./gradlew dependencies` and you'll get a detailed tree of dependencies which shows Jackson 2.x. You can also see that it comes from https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-starters/spring-boot-starter-json[/spring-boot-starter-json], itself imported by https://github.com/spring-projects/spring-boot/blob/master/spring-boot-starters/spring-boot-starter-web/pom.xml[spring-boot-starter-web].
+
+
+== Create an executable main class
+
+You can launch the application from a custom main class, or we can do that directly from one of the configuration classes.  The easiest way is to use the `SpringApplication` helper class:
+
+`src/main/java/hello/HelloWorldApplication.java`
+[source,java]
+----
+include::complete/src/main/java/hello/HelloWorldApplication.java[]
+----
+
+In a conventional Spring MVC application, you would add `@EnableWebMvc` to turn on key behaviors including configuration of a `DispatcherServlet`. But Spring Boot turns on this annotation automatically when it detects **spring-webmvc** on your classpath. This sets you up to build a controller in an upcoming step.
+
+The `@SpringBootApplication` also brings in a http://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/context/annotation/ComponentScan.html[`@ComponentScan`], which tells Spring to scan the `hello` package for those controllers (along with any other annotated component classes).
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_mainhead.adoc[]
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_with_both.adoc[]
+
+
+....
+... service comes up ...
+....
+
+
+Test it:
+....
+$ curl localhost:8080/hello-world
+{"id":1,"content":"Hello, Stranger!"}
+....
+
+=== To deploy to PCF
+
+$ cd $HOME/session_05/lab_04/gs-actuator-service-master/initial
+$ ls -al manifest.yml
+
+Edit manifest.yml
+
+link::pivotal-perficient-stl-workshop/session_05/lab_04/gs-actuator-service-master/initial/manifest.yml
+
+
+Update the name to something unique
+
+name: hello-world-{student9}
+
+$ cd $HOME/session_05/lab_04/gs-actuator-service-master/initial
+
+$ cf push
+
+$ cf apps
+
+Note the route for your application: 
+
+Replace <student9> with your uniqiue entry from the manifest file
+
+Browse to http://hello-world-student9.cfapps.io/actuator 
+http://hello-world-student9.cfapps.io/actuator/health
+
+https://hello-world-student9.cfapps.io/hello-world
+
+== Summary
+Congratulations! You have just developed a simple RESTful service using Spring. You added some useful built-in services thanks to Spring Boot Actuator.
+
+== See Also
+
+The following guides may also be helpful:
+
+* https://spring.io/guides/gs/spring-boot/[Building an Application with Spring Boot]
+* https://spring.io/guides/gs/serving-web-content/[Serving Web Content with Spring MVC]
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
