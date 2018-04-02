@@ -138,6 +138,7 @@ You can launch the application from a custom main class, or we can do that direc
 [source,java]
 ----
 include::complete/src/main/java/hello/HelloWorldApplication.java[]
+https://github.com/cbusch-pivotal/pivotal-perficient-stl-workshop/blob/master/session_05/lab_04/gs-actuator-service-master/complete/src/main/java/hello/HelloWorldController.java
 ----
 
 In a conventional Spring MVC application, you would add `@EnableWebMvc` to turn on key behaviors including configuration of a `DispatcherServlet`. But Spring Boot turns on this annotation automatically when it detects **spring-webmvc** on your classpath. This sets you up to build a controller in an upcoming step.
