@@ -196,6 +196,35 @@ http://hello-world-student9.cfapps.io/actuator/health
 
 https://hello-world-student9.cfapps.io/hello-world
 
+== To see other Other actuator endpoints
+
+$ cd $HOME/lab_04/gs-actuator-service-master/initial/src/main/resources
+See example here:
+link::pivotal-perficient-stl-workshop/session_05/lab_04/gs-actuator-service-master/complete
+
+
+Add the file - application.properties
+management.endpoints.web.exposure.include=*
+
+----
+$ mvnw clean 
+$ mvnw package
+-----
+
+$ cd $HOME/session_05/lab_04/gs-actuator-service-master/initial
+
+$ cf push
+
+
+Now you should be able to see additional endpoints:
+
+http://hello-world-student9.cfapps.io/actuator 
+http://hello-world-student9.cfapps.io/actuator/health
+http://hello-world-student9.cfapps.io/actuator/env
+http://hello-world-student9.cfapps.io/actuator/metrics
+
+http://hello-world-student9.cfapps.io/actuator/metrics/jvm.memory.used
+
 == Summary
 Congratulations! You have just developed a simple RESTful service using Spring. You added some useful built-in services thanks to Spring Boot Actuator.
 
