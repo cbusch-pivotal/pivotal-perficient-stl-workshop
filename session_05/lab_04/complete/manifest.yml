@@ -1,0 +1,7 @@
+---
+applications:
+- name: hello-world
+  random-route: true
+  memory: 1G 
+  instances: 1
+  path: ./target/gs-actuator-service-0.1.0.jar

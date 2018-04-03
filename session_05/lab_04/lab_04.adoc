@@ -1,259 +1,305 @@
-= Lab 4 - Introspection, Monitoring, and Metrics using Spring Boot Actuator
+= Spring Boot Actuator Lab
 
-== Set up the Actuator
+http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready[Spring Boot Actuator] is a sub-project of Spring Boot. It adds several production grade services to your application with little effort on your part. In this guide, you'll build an application and then see how to add these services.
 
-. Change to the lab directory:
-+
+== What you'll build
+
+This guide will take you through creating a "hello world" _RESTful web service_ with *Spring Boot Actuator*. You'll build a service that accepts an HTTP GET request:
+
+[source,sh]
 ----
-$ cd $COURSE_HOME/session_03/lab_05/initial/hello-spring-boot
-----
-
-. Import the project's `pom.xml` into your editor/IDE of choice.
-
-. To `pom.xml` add the following dependency to include the starter for Spring Boot Actuator:
-+
-----
-<dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-actuator</artifactId>
-</dependency>
+$ curl http://localhost:9000/hello-world
 ----
 
-== Introspection Endpoints
+It responds with the following JSON:
 
-. Build the application:
-+
+[source,json]
 ----
-$ mvn package
-----
-
-. Run the application:
-+
-----
-$ java -jar target/hello-spring-boot-0.0.1-SNAPSHOT.jar
+{"id":1,"content":"Hello, World!"}
 ----
 
-. Try out the following endpoints. The output is omitted here because it can be quite large:
-+
-http://localhost:8080/beans:: Dumps all of the beans in the Spring context.
-http://localhost:8080/autoconfig:: Dumps all of the auto-configuration performed as part of application bootstrapping.
-http://localhost:8080/configprops:: Displays a collated list of all `@ConfigurationProperties`.
-http://localhost:8080/env:: Dumps the application's shell environment as well as all Java system properties.
-http://localhost:8080/mappings:: Dumps all URI request mappings and the controller methods to which they are mapped.
-http://localhost:8080/dump:: Performs a thread dump.
-http://localhost:8080/trace:: Displays trace information (by default the last few HTTP requests).
+There are also many features added to your application out-of-the-box for managing the service in a production (or other) environment.  The business functionality of the service you build is the same as in link:https://spring.io/guides/gs/rest-service/[Building a RESTful Web Service]. You don't need to use that guide to take advantage of this one, although it might be interesting to compare the results.
 
-== Build and Version Control Info
+== Run the empty service
+For starters, here's an empty Spring MVC application.
 
-Spring Boot provides an endpoint (http://localhost:8080/info) that allows the exposure of arbitrary metadata.
+In your favorite IDE, open the directory `session_05/lab_04/initial`, or in a command prompt, change directories to `session_05/lab_04/initial`. This is an empty HelloWorldApplication java app.
 
-One thing that it does well is expose information about the specific build and version control coordinates for a given deployment.
+View the `src/main/java/hello/HelloWorldApplication.java` file to find the below contents.
 
-. Add the following plugin to your Maven build.
-It will add Git branch and commit coordinates to the `/info` endpoint:
-+
+[source,java]
 ----
-<plugin>
-	<groupId>pl.project13.maven</groupId>
-	<artifactId>git-commit-id-plugin</artifactId>
-	<configuration>
-			<dotGitDirectory>../../../../.git</dotGitDirectory>
-	</configuration>
-</plugin>
-----
-+
-*NOTE: The path `../../../../.git` refers to the `.git` directory at the root of the course materials.*
+package hello;
 
-. Add the following properties to `src/main/resources/application.yml` after the `greeting: Hello` line:
-+
-----
-info:
-  build:
-    artifact: @project.artifactId@
-    name: @project.name@
-    description: @project.description@
-    version: @project.version@
-----
-+
-These will add the project's Maven coordinates to the `/info` endpoint. The Spring Boot Maven plugin will cause them to automatically be replaced in the assembled JAR.
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-. Build the application:
-+
-----
-$ mvn package
+@SpringBootApplication
+public class HelloWorldApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(HelloWorldApplication.class, args);
+    }
+
+}
 ----
 
-. Run the application:
-+
+The `@SpringBootApplication` annotation provides a load of defaults (like the embedded servlet container) depending on the contents of your classpath, and other things. It also turns on Spring MVC's `@EnableWebMvc` annotation that activates web endpoints.
+
+There aren't any endpoints defined in this application, but there's enough to launch things and see some of Actuator's features.  The `SpringApplication.run()` command knows how to launch the web application.
+
+All you need to do is run the following command.
+
+[subs="attributes"]
 ----
-$ java -jar target/hello-spring-boot-0.0.1-SNAPSHOT.jar
+$ ./gradlew clean build && java -jar build/libs/gs-actuator-service-initial.jar
 ----
 
-. Visit the application in the browser (http://localhost:8080/info), and verify that the output is similar to the following:
-+
+You hardly written any code yet, so what's happening? Wait for the server to start and go to another terminal to try it out the `curl` command:
+
+----
+$ curl localhost:8080
+{"timestamp":"2018-04-02T21:36:37.407+0000","status":404,"error":"Not Found","message":"No message available","path":"/"}
+----
+
+So the server is running, but you haven't defined any business endpoints yet. Instead of a default container-generated HTML error response, you see a generic JSON response from the Actuator `/error` endpoint.  You can see in the console logs from the server startup which endpoints are provided out of the box.
+
+Try a few out, for example
+
+----
+$ curl localhost:8080/actuator/health
+{"status":"UP"}
+----
+
+You're "UP", so that's good.
+
+Check out Spring Boot's https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-actuator[Actuator Project] for more details.
+
+[[initial]]
+== Create a representation class
+First, give some thought to what your API will look like.
+
+You want to handle GET requests for `/hello-world`, optionally with a name query parameter. In response to such a request, you will send back JSON, representing a greeting, that looks something like this:
+
+[source,json]
 ----
 {
-  build: {
-    artifact: "hello-spring-boot",
-    name: "hello-spring-boot",
-    description: "Hello Spring Boot",
-    version: "0.0.1-SNAPSHOT"
-  },
-  git: {
-    branch: "master",
-    commit: {
-      id: "a15f771",
-      time: "2015-05-03T16:51:31-0400"
+    "id": 1,
+    "content": "Hello, World!"
+}
+----
+
+The `id` field is a unique identifier for the greeting, and `content` is the textual representation of the greeting.
+
+To model the greeting representation, create a representation class `src/main/java/hello/Greeting.java`:
+
+[source,java]
+----
+package hello;
+
+public class Greeting {
+
+    private final long id;
+    private final String content;
+
+    public Greeting(long id, String content) {
+        this.id = id;
+        this.content = content;
     }
-  }
-}
-----
 
-== Health Indicators
-
-Spring Boot provides an endpoint (http://localhost:8080/health) that allows for the notion of various health indicators.
-
-. Normally, when Spring Security is not enabled, the `/health` endpoint will only expose an `UP` or `DOWN` value.
-To simplify working with the endpoint for this lab, we will turn off its sensitivity.
-Add the following to `src/main/resources/application.yml` after `greeting: Hello`:
-+
-----
-endpoints:
-  health:
-    sensitive: false
-----
-. Create the class `io.pivotal.spring.hello.FlappingHealthIndicator` and into it paste the following code:
-+
-----
-import java.util.Random;
-import org.springframework.boot.actuate.health.Health;
-import org.springframework.boot.actuate.health.HealthIndicator;
-import org.springframework.stereotype.Component;
-
-@Component
-public class FlappingHealthIndicator implements HealthIndicator{
-
-    private Random random = new Random(System.currentTimeMillis());
-
-    @Override
-    public Health health() {
-        int result = random.nextInt(100);
-        if (result < 50) {
-            return Health.down().withDetail("flapper", "failure").withDetail("random", result).build();
-        } else {
-            return Health.up().withDetail("flapper", "ok").withDetail("random", result).build();
-        }
+    public long getId() {
+        return id;
     }
-}
-----
-+
-This demo health indicator will randomize the health check.
 
-. Build the application:
-+
-----
-$ mvn package
-----
-
-. Run the application:
-+
-----
-$ java -jar target/hello-spring-boot-0.0.1-SNAPSHOT.jar
-----
-
-. Visit the application in the browser (http://localhost:8080/health), and verify that the output is similar to the following (and changes randomly!):
-+
-----
-{
-  status: "UP",
-  flapping: {
-    status: "UP",
-    flapper: "ok",
-    random: 69
-  },
-  diskSpace: {
-    status: "UP",
-    free: 113632186368,
-    threshold: 10485760
-  }
-}
-----
-
-== Metrics
-
-Spring Boot provides an endpoint (http://localhost:8080/metrics) that exposes several automatically collected metrics for your application.
-It also allows for the creation of custom metrics.
-
-. Create the class `io.pivotal.spring.hello.GreetingService` and into it paste the following code:
-+
-----
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.actuate.metrics.CounterService;
-import org.springframework.stereotype.Component;
-
-@Component
-public class GreetingService {
-
-    @Autowired
-    CounterService counterService;
-
-    @Value("${greeting}")
-    String greeting;
-
-    public String getGreeting() {
-        counterService.increment("counter.services.greeting.invoked");
-        return greeting;
+    public String getContent() {
+        return content;
     }
+
 }
 ----
-+
-This class is using the `@Autowired` `CounterService` to count the number of times that the `getGreeting()` method has been invoked.
 
-. Refactor the contents of the class `io.spring.hello.HelloSpringBootApplication`:
-+
+Now that you'll create the endpoint controller that will serve the representation class.
+
+== Create a resource controller
+In Spring, REST endpoints are just Spring MVC controllers. The following Spring MVC controller handles a GET request for `/hello-world` and returns the `Greeting` resource.
+
+Next, create the file `src/main/java/hello/HelloWorldController.java`:
+
+[source,java]
 ----
-// imports
-import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.beans.factory.annotation.Value;
+package hello;
 
-// contents of class HelloSpringBootApplication
-@Autowired
-private GreetingService greetingService;
+import java.util.concurrent.atomic.AtomicLong;
 
-@RequestMapping("/")
-public String hello() {
-    return String.format("%s World!", greetingService.getGreeting());
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class HelloWorldController {
+
+    private static final String template = "Hello, %s!";
+    private final AtomicLong counter = new AtomicLong();
+
+    @GetMapping("/hello-world")
+    @ResponseBody
+    public Greeting sayHello(@RequestParam(name="name", required=false, defaultValue="Stranger") String name) {
+        return new Greeting(counter.incrementAndGet(), String.format(template, name));
+    }
+
 }
-
-public static void main(String[] args) {
-    SpringApplication.run(HelloSpringBootApplication.class, args);
-}
-----
-+
-`hello()` is now delegating the source of the greeting to our newly created `GreetingService`.
-
-. Build the application:
-+
-----
-$ mvn package
 ----
 
-. Run the application:
-+
+The key difference between a human-facing controller and a REST endpoint controller is in how the response is created. Rather than rely on a view (such as JSP) to render model data in HTML, an endpoint controller simply returns the data to be written directly to the body of the response.
+
+The http://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/web/bind/annotation/ResponseBody.html[`@ResponseBody`] annotation tells Spring MVC not to render a model into a view, but rather to write the returned object into the response body. It does this by using one of Spring's message converters. Because Jackson 2 is in the classpath, this means that http://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.html[`MappingJackson2HttpMessageConverter`] will handle the conversion of Greeting to JSON if the request's `Accept` header specifies that JSON should be returned.
+
+*NOTE*: How do you know Jackson 2 is on the classpath? Either run ` mvn dependency:tree` or `./gradlew dependencies` and you'll get a detailed tree of dependencies which shows Jackson 2.x. You can also see that it comes from https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-starters/spring-boot-starter-json[/spring-boot-starter-json], itself imported by https://github.com/spring-projects/spring-boot/blob/master/spring-boot-starters/spring-boot-starter-web/pom.xml[spring-boot-starter-web].
+
+
+== Create an executable main class
+
+You can launch the application from a custom main class, or we can do that directly from one of the configuration classes.  The easiest way is to use the `SpringApplication` helper class:
+
+`src/main/java/hello/HelloWorldApplication.java`
+[source,java]
 ----
-$ java -jar target/hello-spring-boot-0.0.1-SNAPSHOT.jar
+include::complete/src/main/java/hello/HelloWorldApplication.java[]
 ----
 
-. Visit the application in the browser (http://localhost:8080) and refresh the page several times.
+In a conventional Spring MVC application, you would add `@EnableWebMvc` to turn on key behaviors including configuration of a `DispatcherServlet`. But Spring Boot turns on this annotation automatically when it detects **spring-webmvc** on your classpath. This sets you up to build a controller in an upcoming step.
 
-. Now visit the `/metrics` endpoint (http://localhost:8080/metrics).
-Among the autogenerated metrics you should see a `counter` for the `GreetingService` invocations:
-+
+The `@SpringBootApplication` also brings in a http://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/context/annotation/ComponentScan.html[`@ComponentScan`], which tells Spring to scan the `hello` package for those controllers (along with any other annotated component classes).
+
+== Build an executable JAR
+
+You can run the application from the command line with Gradle or Maven. Or you can build a single executable JAR file that contains all the necessary dependencies, classes, and resources, and run that. This makes it easy to ship, version, and deploy the service as an application throughout the development lifecycle, across different environments, and so forth.
+
+If you are using Gradle, you can run the application using `./gradlew bootRun`. Or you can build the JAR file using `./gradlew build`. Then you can run the JAR file:
+
 ----
-counter.services.greeting.invoked: 16,
+$ java -jar build/libs/gs-actuator-service-initial.jar
 ----
-+
-To learn more about the autogenerated metrics, visit http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-metrics.html.
+
+If you are using Maven, you can run the application using `./mvnw spring-boot:run`. Or you can build the JAR file with `./mvnw clean package`. Then you can run the JAR file:
+
+----
+$ java -jar target/gs-actuator-service-0.1.0.jar
+----
+
+The procedure above will create a runnable JAR. You can also opt to build a classic WAR file instead.
+
+----
+... service comes up ...
+----
+
+Test it with the `curl` command:
+
+----
+$ curl localhost:8080/hello-world
+{"id":1,"content":"Hello, Stranger!"}
+----
+
+== Switch to a different server port
+
+Spring Boot Actuator defaults to run on port 8080. By adding an `application.properties` file, you can override that setting.
+
+Create a new `src/main/resources/application.properties` file with the following contents:
+
+[source,properties]
+----
+server.port: 9000
+management.server.port: 9001
+management.server.address: 127.0.0.1
+----
+
+Run the server again:
+
+[subs="attributes"]
+----
+$ ./gradlew clean build && java -jar build/libs/gs-actuator-service-initial.jar
+
+... service comes up on port 9000 ...
+----
+
+Test it with the following `curl` commands:
+
+----
+$ curl localhost:8080/hello-world
+curl: (7) Failed to connect to localhost port 8080: Connection refused
+
+$ curl localhost:9000/hello-world
+{"id":1,"content":"Hello, Stranger!"}
+
+$ curl localhost:9001/actuator/health
+{"status":"UP"}
+----
+
+== Test your application on Cloud Foundry
+
+Using the Maven build `target/gs-actuator-service-0.1.0.jar`, *without* the `application.properties` file applying port 9000, push the app.
+
+Contents of `manifest.yml`:
+
+----
+---
+applications:
+- name: hello-world
+  random-route: true
+  memory: 1G
+  instances: 1
+  path: ./target/gs-actuator-service-0.1.0.jar
+----
+
+Push to cloud foundry:
+
+----
+$ cf push
+...
+Waiting for app to start...
+
+name:              hello-world
+requested state:   started
+instances:         1/1
+usage:             1G x 1 instances
+routes:            hello-world-thankful-waterbuck.apps.mypcf.net <1>
+last uploaded:     Mon 02 Apr 17:02:45 CDT 2018
+stack:             cflinuxfs2
+buildpack:         client-certificate-mapper=1.5.0_RELEASE container-security-provider=1.11.0_RELEASE
+                   java-buildpack=v4.8-offline-https://github.com/cloudfoundry/java-buildpack.git#9f97630 java-main
+                   java-opts java-security jvmkill-agent=1.12.0_RELEASE open-jdk-l...
+start command:     JAVA_OPTS="-agentpath:$PWD/.java-buildpack/open_jdk_jre/bin/jvmkill-1.12.0_RELEASE=printHeapHistogram=1
+                   -Djava.io.tmpdir=$TMPDIR
+                   -Djava.ext.dirs=$PWD/.java-buildpack/container_security_provider:$PWD/.java-buildpack/open_jdk_jre/lib/ext
+                   -Djava.security.properties=$PWD/.java-buildpack/java_security/java.security $JAVA_OPTS" &&
+                   CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-3.10.0_RELEASE
+                   -totMemory=$MEMORY_LIMIT -stackThreads=250 -loadedClasses=14265 -poolType=metaspace -vmOptions="$JAVA_OPTS")
+                   && echo JVM Memory Configuration: $CALCULATED_MEMORY && JAVA_OPTS="$JAVA_OPTS $CALCULATED_MEMORY" &&
+                   SERVER_PORT=$PORT eval exec $PWD/.java-buildpack/open_jdk_jre/bin/java $JAVA_OPTS -cp $PWD/.
+                   org.springframework.boot.loader.JarLauncher
+
+     state     since                  cpu    memory      disk       details
+#0   running   2018-04-02T22:03:35Z   0.0%   44K of 1G   8K of 1G
+----
+
+<1> Give it a try, but check your route.
+
+From the Mac OS commandline below, or copy the URL to your browser.
+
+----
+$ open `https://hello-world-thankful-waterbuck.apps.mypcf.net/hello-world`
+----
+
+
+== Summary
+Congratulations! You have just developed a simple RESTful service using Spring. You added some useful built-in services thanks to Spring Boot Actuator.
+
+== See Also
+
+The following guides may also be helpful:
+
+* https://spring.io/guides/gs/spring-boot/[Building an Application with Spring Boot]
+* https://spring.io/guides/gs/serving-web-content/[Serving Web Content with Spring MVC]
 
 link:/README.md#course-materials[Course Materials home] | link:/session_06/lab_05/lab_05.adoc[Lab 5 - Leveraging Spring Cloud Data Flow]
