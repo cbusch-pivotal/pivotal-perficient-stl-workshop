@@ -28,8 +28,9 @@ _This workshop is intended for: Managers, Architects, Developers, Operators and 
 Time | Session
 ---- | -------
 8:30 AM - 9:00 AM | _Registration and Breakfast_
-9:00 AM - 9:30 AM | _Session 1: Cloud Native Architectures & Security_
-9:30 AM - 10:30 AM | _Session 2: PCF 2.0 Overview*_
+9:00 AM - 9:15 AM | _Introductions, Logistics, Company Overviews_
+9:15 AM - 9:45 AM | _Session 1: Cloud Native Architectures & Security_
+9:45 AM - 10:30 AM | _Session 2: PCF 2.0 Overview*_
 10:30 AM - 10:45 AM | _Break_
 10:45 AM - 11:15 AM | _Session 3: What's new in PCF 2.1?_
 11:15 AM - 12:00 PM | _Session 4: PCF Application Deployment Labs_
@@ -80,6 +81,8 @@ Finally, in order to perform the labs, you must be connected or logged into a li
 ## Course Materials
 
 PowerPoint template for slides (Dave to talk with Marketing team)
+
+#### _Introductions, Logistics, Company Overviews_ [(Slides)](session_01/Session_Intro.pptx)
 
 #### _Session 1: Cloud Native Architectures & Security_ [(Slides)](session_01/Session_01-Cloud_Native_Architectures_and_Security.pptx)
 
