@@ -80,8 +80,6 @@ Finally, in order to perform the labs, you must be connected or logged into a li
 
 ## Course Materials
 
-PowerPoint template for slides (Dave to talk with Marketing team)
-
 #### _Introductions, Logistics, Company Overviews_ [(Slides)](session_00/Session_Intro.pptx)
 
 #### _Session 1: Cloud Native Architectures & Security_ [(Slides)](session_01/Session_01-Cloud_Native_Architectures_and_Security.pptx)
