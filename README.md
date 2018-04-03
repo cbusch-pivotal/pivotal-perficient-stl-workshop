@@ -116,14 +116,15 @@ Finally, in order to perform the labs, you must be connected or logged into a li
 ## The Team
 
 ### Instructors
-- Vishal Sharma, Perficient, Vishal.Sharma@perficient.com
-- Sharath Sahadevan, Pivotal Platform Achitect, ssahadevan@pivotal.io
-- Chris Busch, Pivotal Platform Architect, cbusch@pivotal.io
-- DJ Kaiping, Perficient, dj.kaiping@perficient.com
-- Cory Jett, Pivotal Platform Architect, cjett@pivotal.io
+- **Vishal Sharma** - Perficient - Director/Principle Architect, vishal.sharma@perficient.com
+- **Sharath Sahadevan** - Pivotal - Platform Achitect, ssahadevan@pivotal.io
+- **Chris Busch** - Pivotal - Platform Architect, cbusch@pivotal.io
+- **DJ Kaiping** - Perficient - Sr. Technical Architect, dj.kaiping@perficient.com
+- **Cory Jett** - Pivotal - Platform Architect, cjett@pivotal.io
 
 ### Hosts
-- Dave Stockmann, Perficient Principle Architect, dave.stockmann@perficient.com
-- Daniel Hawthorne, Pivotal Account Executive, dhawthorne@pivotal.io
-- Jim Lyon, Pivotal Account Executive, jlyon@pivotal.io
+- **Dave Stockmann** - Perficient Director/Principle Architect, dave.stockmann@perficient.com
+- **Jason Hudnall** - Perficient St. Louis General Manager, jason.hudnall@perficient.com
+- **Daniel Hawthorne** - Pivotal Account Executive, dhawthorne@pivotal.io
+- **Jim Lyon** - Pivotal Account Executive, jlyon@pivotal.io
 ...
