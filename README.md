@@ -24,7 +24,6 @@ _This workshop is intended for: Managers, Architects, Developers, Operators and 
 Meet the team and hear from our clients at our co-sponsored session: [Unleash Innovation with Application Modernization](https://www.g2iconference.com/agenda/session/186985).  
 *Topic*: Find out how leading enterprise organizations are shifting their traditional business practices by leveraging cloud-based platforms to extend the value of legacy applications, accelerate speed to market, increase profits, and unleash innovation.  
 *With Speakers*: Vijay Sankaran (CIO, TD Ameritrade), Dormain Drewitz (Senior Director of Product and Customer Marketing, Pivotal), Steve Helms (Director of Enterprise Integration, First National Bank - FNBO), Mark Munsell (Deputy CIO, National Geospatial-Intelligence Agency - NGA)
-
 - ...
 
 https://www.g2iconference.com/agenda/session/186985
